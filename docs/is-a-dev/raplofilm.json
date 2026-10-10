@@ -1,0 +1,11 @@
+{
+  "description": "GinFilm - Personal Cinema Booking Platform",
+  "repo": "https://github.com/tranthaigin/GinFilm",
+  "owner": {
+    "username": "tranthaigin",
+    "email": "242965146+tranthaigin@users.noreply.github.com"
+  },
+  "record": {
+    "CNAME": "cname.vercel-dns.com"
+  }
+}

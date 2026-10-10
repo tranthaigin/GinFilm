@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "build": {
+    "env": {
+      "VITE_API_BASE_URL": "https://raplofilm-production.up.railway.app/api",
+      "VITE_API_URL": "https://raplofilm-production.up.railway.app/api"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "https://raplofilm-production.up.railway.app/api/$1"
+    },
+    {
+      "source": "/uploads/(.*)",
+      "destination": "https://raplofilm-production.up.railway.app/uploads/$1"
+    },
+    {
+      "source": "/ws/(.*)",
+      "destination": "https://raplofilm-production.up.railway.app/ws/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

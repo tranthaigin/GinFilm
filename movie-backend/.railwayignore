@@ -1,0 +1,9 @@
+# Bỏ qua các file không cần thiết khi Railway build
+target/
+*.log
+replay_*.log
+hs_err_*.log
+uploads/
+.git/
+.idea/
+.vscode/

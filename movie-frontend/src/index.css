@@ -1,0 +1,3375 @@
+  .material-symbols-outlined.filled {
+    font-variation-settings: 'FILL' 1;
+  }
+
+  @import "tailwindcss";
+  @custom-variant dark (&:where(.dark, .dark *));
+
+  /* Force Inter font and remove italics globally per user request */
+  body {
+    font-family: 'Inter', sans-serif !important;
+  }
+
+  * {
+    font-style: normal !important;
+  }
+
+  /* Exclude material symbols from global font overrides */
+  .material-symbols-outlined {
+    align-items: center;
+    display: inline-flex;
+    flex-shrink: 0;
+    font-family: 'Material Symbols Outlined' !important;
+    height: 1em;
+    justify-content: center;
+    line-height: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 1em;
+  }
+
+  @theme {
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --animate-fade-in-up: fade-in-up 0.2s ease-out forwards;
+
+    @keyframes fade-in-up {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  .home-content-section {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 700px;
+  }
+
+  /* Gradient Text for Logo */
+  .logo-gradient-text {
+    background: linear-gradient(90deg, #ffffff 0%, #ff2e63 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    color: transparent !important;
+  }
+
+  /* Sign In Button CSS removed - now using Tailwind classes in Header.jsx */
+
+  /* Light Theme Override for HomePage */
+  .light-theme {
+    --color-background: #ffffff;
+    --color-surface: #ffffff;
+    --color-surface-container: #f5f5f5;
+    --color-surface-container-high: #eeeeee;
+    --color-surface-container-low: #fafafa;
+    --color-surface-container-lowest: #ffffff;
+    --color-surface-container-highest: #e0e0e0;
+    --color-surface-alt: #f8f9fa;
+    --color-surface-bright: #ffffff;
+    --color-surface-dim: #e8e8e8;
+    --color-on-background: #1a1a1a;
+    --color-on-surface: #1a1a1a;
+    --color-text-default: #666666;
+    --color-text-muted: #888888;
+    --color-text-strong: #1a1a1a;
+    --color-primary: #dc2626;
+    --color-on-primary: #ffffff;
+    --color-secondary: #6b6b6b;
+    --color-on-secondary: #ffffff;
+    --color-outline: #cccccc;
+    --color-outline-variant: #e0e0e0;
+  }
+
+
+
+  /* Support cho Firefox (vì Firefox không nhận webkit) */
+  @supports (-moz-appearance: none) {
+    * {
+      scrollbar-width: thin !important;
+      scrollbar-color: rgba(230, 26, 39, 0.4) transparent !important;
+    }
+  }
+
+  /* 1. Thu hẹp chiều rộng thanh cuộn */
+  ::-webkit-scrollbar {
+    width: 4px !important;
+    /* Làm hẹp lại theo yêu cầu */
+    height: 4px !important;
+  }
+
+  /* 2. Bỏ hoàn toàn mũi tên ở 2 đầu cho TẤT CẢ các thanh cuộn */
+  ::-webkit-scrollbar-button {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  /* Nền của thanh cuộn (Track) - Để trong suốt để không bị lộ khi ẩn */
+  ::-webkit-scrollbar-track {
+    background: transparent !important;
+  }
+
+  /* 3. Ẩn/Làm mờ phần tay cầm (Thumb) */
+  ::-webkit-scrollbar-thumb {
+    background: rgba(230, 26, 39, 0.3) !important;
+    border-radius: 10px !important;
+  }
+
+  /* Hiện thanh cuộn rõ nét khi hover trực tiếp lên tay cầm thanh cuộn */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(230, 26, 39, 0.6) !important;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: transparent !important;
+  }
+
+  /* Tailwind v4: @theme = design tokens, @utility = custom class tái sử dụng */
+  @theme {
+    --color-tertiary-fixed-dim: #63dd93;
+    --color-accent-tint: #ffecee;
+    --color-on-tertiary-fixed: #00210e;
+    --color-on-primary-fixed: #400010;
+    --color-on-tertiary: #00391d;
+    --color-tertiary-container: #1da561;
+    --color-surface: #ffffff;
+    --color-on-tertiary-container: #003118;
+    --color-error: #ffb4ab;
+    --color-surface-container-lowest: #ffffff;
+    --color-on-error-container: #ffdad6;
+    --color-secondary: #6b6b6b;
+    --color-background: #ffffff;
+    --color-on-primary-fixed-variant: #910030;
+    --color-inverse-surface: #e5e2e1;
+    --color-secondary-fixed: #e3e2e2;
+    --color-surface-container: #f5f5f5;
+    --color-on-secondary-fixed: #1b1c1c;
+    --color-surface-dim: #e8e8e8;
+    --color-primary-fixed-dim: #ffb2ba;
+    --color-on-surface: #1a1a1a;
+    --color-surface-container-high: #eeeeee;
+    --color-outline-variant: #e0e0e0;
+    --color-surface-container-low: #fafafa;
+    --color-primary-fixed: #ffd9dc;
+    --color-surface-container-highest: #e0e0e0;
+    --color-secondary-container: #e0e0e0;
+    --color-error-container: #93000a;
+    --color-accent-soft: #ff8d9e;
+    --color-on-primary: #ffffff;
+    --color-text-default: #666666;
+    --color-on-secondary: #ffffff;
+    --color-tertiary-fixed: #80fbad;
+    --color-surface-alt: #f8f9fa;
+    --color-text-strong: #1a1a1a;
+    --color-on-error: #690005;
+    --color-outline: #cccccc;
+    --color-on-surface-variant: #e5bdc0;
+    --color-on-secondary-container: #b6b5b5;
+    --color-on-tertiary-fixed-variant: #00522c;
+    --color-on-primary-container: #5b001a;
+    --color-secondary-fixed-dim: #c7c6c6;
+    --color-tertiary: #63dd93;
+    --color-on-secondary-fixed-variant: #464747;
+    --color-inverse-on-surface: #313030;
+    --color-on-background: #1a1a1a;
+    --color-surface-tint: #ffb2ba;
+    --color-inverse-primary: #bd0041;
+    --color-surface-variant: #e0e0e0;
+    --color-text-muted: #888888;
+    --color-primary-container: #ff4f72;
+    --color-accent-dark: #7d0027;
+    --color-primary: #dc2626;
+    --color-surface-bright: #ffffff;
+    --color-brand-red: #dc2626;
+
+    --spacing-margin-mobile: 16px;
+    --spacing-margin-desktop: 48px;
+    --spacing-unit: 4px;
+    --spacing-gutter: 24px;
+    --spacing-container-max: 1440px;
+
+    --font-display-lg-mobile: "Inter", sans-serif;
+    --font-label-caps: "Inter", sans-serif;
+    --font-display-lg: "Inter", sans-serif;
+    --font-body-md: "Inter", sans-serif;
+    --font-headline-lg: "Inter", sans-serif;
+    --font-headline-md: "Inter", sans-serif;
+    --font-body-lg: "Inter", sans-serif;
+
+    --text-display-lg-mobile: 32px;
+    --text-display-lg-mobile--line-height: 1.2;
+    --text-display-lg-mobile--font-weight: 700;
+
+    --text-label-caps: 14px;
+    --text-label-caps--line-height: 1;
+    --text-label-caps--letter-spacing: 0.08em;
+    --text-label-caps--font-weight: 700;
+
+    --text-display-lg: 48px;
+    --text-display-lg--line-height: 1.1;
+    --text-display-lg--letter-spacing: -0.02em;
+    --text-display-lg--font-weight: 700;
+
+    --text-body-md: 16px;
+    --text-body-md--line-height: 1.6;
+    --text-body-md--font-weight: 400;
+
+    --text-headline-lg: 32px;
+    --text-headline-lg--line-height: 1.2;
+    --text-headline-lg--font-weight: 700;
+
+    --text-headline-md: 24px;
+    --text-headline-md--line-height: 1.3;
+    --text-headline-md--font-weight: 700;
+
+    --text-body-lg: 18px;
+    --text-body-lg--line-height: 1.6;
+    --text-body-lg--font-weight: 400;
+  }
+
+  @utility input-field-icon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-muted);
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  @utility input-has-icon {
+    padding-left: 2.5rem;
+  }
+
+  @utility btn-primary {
+    background-color: #dc2626;
+    color: #ffffff;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 6px;
+    padding: 12px 24px;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #B81D42;
+    }
+  }
+
+  @utility btn-secondary {
+    border: 1px solid #e0e0e0;
+    color: #666666;
+    border-radius: 6px;
+    transition: all 0.2s;
+
+    &:hover {
+      border-color: #dc2626;
+      color: #dc2626;
+    }
+  }
+
+  @utility input-field {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    color: #1a1a1a;
+    border-radius: 6px;
+
+    &:focus {
+      border-color: #dc2626;
+      outline: none;
+      box-shadow: 0 0 0 1px #dc2626;
+    }
+  }
+
+  /* Make all native selects look beautiful with custom chevron */
+  select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23888888' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e") !important;
+    background-position: right 0.5rem center !important;
+    background-repeat: no-repeat !important;
+    background-size: 1.5em 1.5em !important;
+    padding-right: 2.5rem !important;
+  }
+
+  @utility card-surface {
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  }
+
+  @utility scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  @layer components {
+    .auth-page {}
+
+    .auth-page h1,
+    .auth-page .auth-brand-title {
+      font-size: 48px;
+      line-height: 1.1;
+      font-weight: 700;
+    }
+
+    .auth-page .auth-hero-copy {
+      font-size: 18px;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    .date-picker-popup .material-symbols-outlined {
+      position: static;
+      transform: none;
+      pointer-events: auto;
+    }
+
+    .hero-gradient {
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    }
+
+    .material-symbols-outlined.fill {
+      font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+    }
+
+    .seat {
+      transition: all 0.2s ease;
+    }
+
+    .seat:not(.occupied):not(:disabled):hover {
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+
+    .seat-selected {
+      background-color: #dc2626 !important;
+      border-color: #dc2626 !important;
+      color: #ffffff !important;
+    }
+
+    .screen-curve {
+      border-top: 4px solid #dc2626;
+      box-shadow: 0 -10px 20px rgba(220,38,38, 0.2);
+    }
+
+    @keyframes fadeInScale {
+      from {
+        opacity: 0;
+        transform: scale(0.93) translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    @keyframes toast-slide-in {
+      from {
+        transform: translateX(120%);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .toast-enter {
+      animation: toast-slide-in 0.35s ease-out;
+    }
+
+    @keyframes typing-bounce {
+
+      0%,
+      80%,
+      100% {
+        transform: translateY(0);
+      }
+
+      40% {
+        transform: translateY(-4px);
+      }
+    }
+
+    @keyframes reportHighlight {
+      from {
+        box-shadow: 0 0 20px 4px rgba(239, 68, 68, 0.3), inset 0 0 15px rgba(239, 68, 68, 0.05);
+        border-color: rgb(239, 68, 68);
+      }
+
+      to {
+        box-shadow: 0 0 45px 10px rgba(239, 68, 68, 0.6), inset 0 0 30px rgba(239, 68, 68, 0.12);
+        border-color: rgb(255, 100, 100);
+      }
+    }
+
+    .typing-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 50%;
+      animation: typing-bounce 1.4s infinite ease-in-out both;
+    }
+
+    .typing-dot:nth-child(1) {
+      animation-delay: -0.32s;
+    }
+
+    .typing-dot:nth-child(2) {
+      animation-delay: -0.16s;
+    }
+  }
+
+  body {
+    font-family: "Inter", sans-serif;
+  }
+
+  /* Ẩn nút mắt native của Edge/Chrome trên input password */
+  input[type="password"]::-ms-reveal,
+  input[type="password"]::-ms-clear {
+    display: none;
+  }
+
+  input[type="password"]::-webkit-credentials-auto-fill-button {
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  /* Fix lỗi nền trắng khi trình duyệt tự động điền (Autofill) */
+  /* Mặc định light mode */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-text-fill-color: #111827 !important;
+    transition: background-color 5000s ease-in-out 0s !important;
+  }
+
+  /* Khi bật dark mode */
+  .dark input:-webkit-autofill,
+  .dark input:-webkit-autofill:hover,
+  .dark input:-webkit-autofill:focus,
+  .dark input:-webkit-autofill:active {
+    -webkit-text-fill-color: white !important;
+  }
+
+  html {
+    color-scheme: light;
+  }
+  html.dark {
+    color-scheme: dark;
+  }
+
+  /* ============================================================
+     ADMIN / STAFF — LIGHT MODE MASTER OVERRIDE
+     Applies ONLY inside .admin-light-mode (AdminLayout / StaffLayout).
+     Auth pages (login, forgot-password, forgot-pin) use class="dark"
+     on their root wrapper and are on separate routes — NOT affected.
+  ============================================================ */
+
+
+
+
+  /* ── Headings & paragraphs: dark by default ── */
+  .admin-light-mode h1,
+  .admin-light-mode h2,
+  .admin-light-mode h3,
+  .admin-light-mode h4,
+  .admin-light-mode h5,
+  .admin-light-mode p,
+  .admin-light-mode label,
+  .admin-light-mode li {
+    color: #111827;
+  }
+
+  /* Keep colored Tailwind text classes */
+  .admin-light-mode [class*="text-[#dc2626]"] {
+    color: #dc2626 !important;
+  }
+
+  .admin-light-mode .text-emerald-400 {
+    color: #059669 !important;
+  }
+
+  .admin-light-mode .text-yellow-400,
+  .admin-light-mode .text-amber-200 {
+    color: #ca8a04 !important;
+  }
+
+  .admin-light-mode .text-blue-400 {
+    color: #2563eb !important;
+  }
+
+  /* ── Gray text Tailwind helpers ── */
+  .admin-light-mode .text-gray-400,
+  .admin-light-mode .text-gray-500,
+  .admin-light-mode [class*="text-[#9D9D9D]"],
+  .admin-light-mode [class*="text-[#aaa]"] {
+    color: #374151 !important;
+  }
+
+  .admin-light-mode .text-gray-600 {
+    color: #1f2937 !important;
+  }
+
+  /* ============================================================
+     TAILWIND BG DARK CLASSES  (bg-[#xxx])
+     Tailwind v4 generates these as CSS classes with escaped chars.
+  ============================================================ */
+  /* #111 / #111111 */
+  .admin-light-mode .bg-\[\#111\],
+  .admin-light-mode .bg-\[\#111111\] {
+    background-color: #ffffff !important;
+  }
+
+  /* #18181b */
+  .admin-light-mode .bg-\[\#18181b\] {
+    background-color: #f4f4f5 !important;
+  }
+
+  /* #0a0a0a #0b0a0a #0c0c0c */
+  .admin-light-mode .bg-\[\#0a0a0a\],
+  .admin-light-mode .bg-\[\#0b0a0a\],
+  .admin-light-mode .bg-\[\#0c0c0c\] {
+    background-color: #f1f3f6 !important;
+  }
+
+  /* #141414 */
+  .admin-light-mode .bg-\[\#141414\] {
+    background-color: #ffffff !important;
+  }
+
+  /* #1a1a1a */
+  .admin-light-mode .bg-\[\#1a1a1a\] {
+    background-color: #f4f4f5 !important;
+  }
+
+  /* #1c1c1c #1e1e1e #222 #222222 #262626 #2a2a2a #333 #333333 #444 */
+  .admin-light-mode .bg-\[\#1c1c1c\],
+  .admin-light-mode .bg-\[\#1e1e1e\],
+  .admin-light-mode .bg-\[\#222\],
+  .admin-light-mode .bg-\[\#222222\],
+  .admin-light-mode .bg-\[\#262626\],
+  .admin-light-mode .bg-\[\#2a2a2a\],
+  .admin-light-mode .bg-\[\#333\],
+  .admin-light-mode .bg-\[\#333333\],
+  .admin-light-mode .bg-\[\#444\],
+  .admin-light-mode .bg-\[\#444444\] {
+    background-color: #f0f0f0 !important;
+  }
+
+  /* bg-white/5, bg-white/10 */
+  .admin-light-mode .bg-white\/5,
+  .admin-light-mode .bg-white\/10 {
+    background-color: rgba(0, 0, 0, 0.04) !important;
+  }
+
+  /* hover: */
+  .admin-light-mode .hover\:bg-white\/5:hover,
+  .admin-light-mode .hover\:bg-white\/10:hover {
+    background-color: rgba(0, 0, 0, 0.04) !important;
+  }
+
+  /* ============================================================
+     TAILWIND BORDER DARK CLASSES
+  ============================================================ */
+  .admin-light-mode .border-white\/5,
+  .admin-light-mode .border-white\/10,
+  .admin-light-mode .border-white\/20,
+  .admin-light-mode .border-white\/30 {
+    border-color: rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .admin-light-mode .border-\[\#333\],
+  .admin-light-mode .border-\[\#333333\],
+  .admin-light-mode .border-\[\#444\],
+  .admin-light-mode .border-\[\#444444\] {
+    border-color: rgba(0, 0, 0, 0.12) !important;
+  }
+
+  .admin-light-mode .divide-white\/10>*+* {
+    border-color: rgba(0, 0, 0, 0.08) !important;
+  }
+
+  /* ============================================================
+     TAILWIND TEXT-WHITE AND VARIANTS
+     Override ONLY when element has no colored background.
+  ============================================================ */
+
+  /* Default: white text → dark */
+  .admin-light-mode .text-white {
+    color: #111827 !important;
+  }
+
+  .admin-light-mode .text-white\/20,
+  .admin-light-mode .text-white\/30,
+  .admin-light-mode .text-white\/40,
+  .admin-light-mode .text-white\/50,
+  .admin-light-mode .text-white\/60,
+  .admin-light-mode .text-white\/70,
+  .admin-light-mode .text-white\/80,
+  .admin-light-mode .text-white\/90 {
+    color: #374151 !important;
+  }
+
+  .admin-light-mode .hover\:text-white:hover {
+    color: #111827 !important;
+  }
+
+  /* Exception: preserve white text on colored/dark backgrounds */
+  /* Using both Tailwind v4 escaped class AND hover attr selector for reliability */
+  .admin-light-mode .bg-\[\#dc2626\].text-white,
+  .admin-light-mode .bg-\[\#dc2626\] .text-white,
+  .admin-light-mode .hover\:bg-\[\#dc2626\]:hover.text-white,
+  .admin-light-mode .hover\:bg-\[\#dc2626\]:hover .text-white,
+  .admin-light-mode .hover\:bg-\[\#dc2626\]:hover.hover\:text-white:hover,
+  .admin-light-mode .bg-red-500.text-white,
+  .admin-light-mode .bg-red-500 .text-white,
+  .admin-light-mode .bg-red-600.text-white,
+  .admin-light-mode .bg-red-600 .text-white,
+  .admin-light-mode .bg-emerald-500.text-white,
+  .admin-light-mode .bg-emerald-500 .text-white,
+  .admin-light-mode .bg-emerald-600.text-white,
+  .admin-light-mode .bg-emerald-600 .text-white,
+  .admin-light-mode .bg-green-500.text-white,
+  .admin-light-mode .bg-green-500 .text-white,
+  .admin-light-mode .bg-blue-500.text-white,
+  .admin-light-mode .bg-blue-500 .text-white,
+  .admin-light-mode .bg-blue-600.text-white,
+  .admin-light-mode .bg-blue-600 .text-white,
+  .admin-light-mode .bg-purple-500.text-white,
+  .admin-light-mode .bg-purple-500 .text-white,
+  .admin-light-mode .bg-indigo-500.text-white,
+  .admin-light-mode .bg-indigo-500 .text-white,
+  .admin-light-mode .bg-yellow-500.text-white,
+  .admin-light-mode .bg-amber-500.text-white,
+  .admin-light-mode .bg-orange-500.text-white,
+  .admin-light-mode [class*="bg-gradient-to-"].text-white,
+  .admin-light-mode [class*="bg-gradient-to-"] .text-white {
+    color: #ffffff !important;
+  }
+
+  /* ALL children inside red/gradient bg stay white */
+  .admin-light-mode .bg-\[\#dc2626\] *,
+  .admin-light-mode .hover\:bg-\[\#dc2626\]:hover *,
+  .admin-light-mode [class*="bg-gradient-to-"] * {
+    color: #ffffff !important;
+  }
+
+  /* Inline style red bg (rgb-normalized) → white text */
+  .admin-light-mode [style*="background: rgb(226, 39, 83)"] *,
+  .admin-light-mode [style*="background-color: rgb(226, 39, 83)"] * {
+    color: #ffffff !important;
+  }
+
+  .admin-light-mode [style*="background: rgb(16, 185, 129)"] *,
+  .admin-light-mode [style*="background-color: rgb(16, 185, 129)"] * {
+    color: #ffffff !important;
+  }
+
+  .admin-light-mode [style*="background: rgb(59, 130, 246)"] *,
+  .admin-light-mode [style*="background-color: rgb(59, 130, 246)"] * {
+    color: #ffffff !important;
+  }
+
+  /* Gradient buttons — text stays white */
+  .admin-light-mode button[style*="linear-gradient"],
+  .admin-light-mode a[style*="linear-gradient"] {
+    color: #ffffff !important;
+  }
+
+  .admin-light-mode button[style*="linear-gradient"] *,
+  .admin-light-mode a[style*="linear-gradient"] * {
+    color: #ffffff !important;
+  }
+
+  /* Force white text ignoring global light mode overrides */
+  .admin-light-mode .text-always-white,
+  .admin-light-mode .text-always-white * {
+    color: #ffffff !important;
+  }
+
+  /* Fix KPI Cards with dark gradients in Light Mode */
+  .admin-light-mode [style*="linear-gradient(135deg, rgba(220,38,38,0.1) 0%, rgba(20,20,20,1) 100%)"] {
+    background: linear-gradient(135deg, rgba(220,38,38, 0.05) 0%, #ffffff 100%) !important;
+  }
+
+  /* ============================================================
+     INLINE STYLE OVERRIDES — BACKGROUNDS (rgb-normalized)
+     IMPORTANT: Chrome normalizes hex→rgb in style attributes.
+     e.g. style="background:#141414" becomes "background: rgb(20, 20, 20)"
+     So we MUST use rgb() values here, not hex!
+  ============================================================ */
+
+  /* #141414 → rgb(20,20,20) */
+  .admin-light-mode [style*="background: rgb(20, 20, 20)"],
+  .admin-light-mode [style*="background-color: rgb(20, 20, 20)"],
+  .admin-light-mode [style*="background:rgb(20, 20, 20)"] {
+    background: #ffffff !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+  }
+
+  /* #0e0e0e → rgb(14,14,14) */
+  .admin-light-mode [style*="background: rgb(14, 14, 14)"],
+  .admin-light-mode [style*="background-color: rgb(14, 14, 14)"],
+  .admin-light-mode [style*="background:rgb(14, 14, 14)"] {
+    background: #ffffff !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+  }
+
+  /* Fix Recharts Tooltips */
+  .admin-light-mode .recharts-tooltip-wrapper>div {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-color: rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .admin-light-mode select,
+  .admin-light-mode select[style] {
+    background-color: #ffffff !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23888888' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e") !important;
+    background-position: right 0.5rem center !important;
+    background-repeat: no-repeat !important;
+    background-size: 1.5em 1.5em !important;
+    color: #111827 !important;
+    border-color: rgba(0, 0, 0, 0.15) !important;
+  }
+
+  .admin-light-mode input:not([type="radio"]):not([type="checkbox"]):not([type="color"]) {
+    background-color: #ffffff !important;
+    color: #111827 !important;
+    border-color: rgba(0, 0, 0, 0.15) !important;
+  }
+
+  .admin-light-mode select option {
+    background-color: #ffffff !important;
+    color: #111827 !important;
+  }
+
+  /* #111 / #111111 → rgb(17,17,17) */
+  .admin-light-mode [style*="background: rgb(17, 17, 17)"],
+  .admin-light-mode [style*="background-color: rgb(17, 17, 17)"],
+  .admin-light-mode [style*="background:rgb(17, 17, 17)"] {
+    background: #ffffff !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+  }
+
+  /* #0a0a0a → rgb(10,10,10) */
+  .admin-light-mode [style*="background: rgb(10, 10, 10)"],
+  .admin-light-mode [style*="background-color: rgb(10, 10, 10)"] {
+    background: #f1f3f6 !important;
+  }
+
+  /* #0c0c0c → rgb(12,12,12) */
+  .admin-light-mode [style*="background: rgb(12, 12, 12)"],
+  .admin-light-mode [style*="background-color: rgb(12, 12, 12)"] {
+    background: #f1f3f6 !important;
+  }
+
+  /* #161616 → rgb(22,22,22) */
+  .admin-light-mode [style*="background: rgb(22, 22, 22)"],
+  .admin-light-mode [style*="background-color: rgb(22, 22, 22)"] {
+    background: #f4f4f5 !important;
+  }
+
+  /* #181818 → rgb(24,24,24) */
+  .admin-light-mode [style*="background: rgb(24, 24, 24)"],
+  .admin-light-mode [style*="background-color: rgb(24, 24, 24)"] {
+    background: #f4f4f5 !important;
+  }
+
+  /* #18181b → rgb(24,24,27) */
+  .admin-light-mode [style*="background: rgb(24, 24, 27)"],
+  .admin-light-mode [style*="background-color: rgb(24, 24, 27)"] {
+    background: #f4f4f5 !important;
+  }
+
+  /* #1a1a1a → rgb(26,26,26) */
+  .admin-light-mode [style*="background: rgb(26, 26, 26)"],
+  .admin-light-mode [style*="background-color: rgb(26, 26, 26)"] {
+    background: #f4f4f5 !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+  }
+
+  /* #1c1c1c → rgb(28,28,28) */
+  .admin-light-mode [style*="background: rgb(28, 28, 28)"],
+  .admin-light-mode [style*="background-color: rgb(28, 28, 28)"] {
+    background: #f0f0f0 !important;
+  }
+
+  /* #1e1e1e → rgb(30,30,30) */
+  .admin-light-mode [style*="background: rgb(30, 30, 30)"],
+  .admin-light-mode [style*="background-color: rgb(30, 30, 30)"] {
+    background: #f0f0f0 !important;
+  }
+
+  /* #1E293B → rgb(30,41,59) (slate-800 used in progress bars) */
+  .admin-light-mode [style*="background: rgb(30, 41, 59)"],
+  .admin-light-mode [style*="background-color: rgb(30, 41, 59)"] {
+    background: #e5e7eb !important;
+  }
+
+  /* #222 / #222222 → rgb(34,34,34) */
+  .admin-light-mode [style*="background: rgb(34, 34, 34)"],
+  .admin-light-mode [style*="background-color: rgb(34, 34, 34)"] {
+    background: #f0f0f0 !important;
+  }
+
+  /* #242424 → rgb(36,36,36) */
+  .admin-light-mode [style*="background: rgb(36, 36, 36)"],
+  .admin-light-mode [style*="background-color: rgb(36, 36, 36)"] {
+    background: #f0f0f0 !important;
+  }
+
+  /* #262626 → rgb(38,38,38) */
+  .admin-light-mode [style*="background: rgb(38, 38, 38)"],
+  .admin-light-mode [style*="background-color: rgb(38, 38, 38)"] {
+    background: #f0f0f0 !important;
+  }
+
+  /* #2a2a2a → rgb(42,42,42) */
+  .admin-light-mode [style*="background: rgb(42, 42, 42)"],
+  .admin-light-mode [style*="background-color: rgb(42, 42, 42)"] {
+    background: #ffffff !important;
+    border-color: rgba(0, 0, 0, 0.15) !important;
+  }
+
+  /* Force light-gray labels to be dark for uniformity in filter bars */
+  .admin-light-mode [style*="color: rgb(156, 163, 175)"],
+  .admin-light-mode [style*="color: #9ca3af"] {
+    color: #111827 !important;
+  }
+
+  /* ============================================================
+     TABLE HEADER UNIFICATION (DARK & LIGHT MODE)
+     ============================================================ */
+  /* Default (Dark Mode) - Applies to all admin tables */
+  thead th,
+  thead .text-\[\#9D9D9D\] {
+    color: #9ca3af !important;
+    white-space: nowrap !important;
+    font-weight: 600 !important;
+  }
+
+  /* Override for Light Mode */
+  .admin-light-mode thead,
+  .admin-light-mode thead th,
+  .admin-light-mode thead .text-\[\#9D9D9D\],
+  .admin-light-mode .text-\[\#9D9D9D\] {
+    color: #111827 !important;
+  }
+
+  /* #333 / #333333 → rgb(51,51,51) */
+  .admin-light-mode [style*="background: rgb(51, 51, 51)"],
+  .admin-light-mode [style*="background-color: rgb(51, 51, 51)"] {
+    background: #ebebeb !important;
+  }
+
+  /* #444 → rgb(68,68,68) */
+  .admin-light-mode [style*="background: rgb(68, 68, 68)"],
+  .admin-light-mode [style*="background-color: rgb(68, 68, 68)"] {
+    background: #e0e0e0 !important;
+  }
+
+  /* rgba near-white-on-dark → near-black-on-light */
+  .admin-light-mode [style*="background: rgba(255, 255, 255, 0.02)"],
+  .admin-light-mode [style*="background: rgba(255, 255, 255, 0.03)"],
+  .admin-light-mode [style*="background: rgba(255, 255, 255, 0.04)"],
+  .admin-light-mode [style*="background: rgba(255, 255, 255, 0.05)"],
+  .admin-light-mode [style*="background: rgba(255, 255, 255, 0.06)"],
+  .admin-light-mode [style*="background: rgba(255, 255, 255, 0.07)"],
+  .admin-light-mode [style*="background: rgba(255, 255, 255, 0.08)"],
+  .admin-light-mode [style*="background: rgba(255,255,255, 0.05)"],
+  .admin-light-mode [style*="background: rgba(255,255,255,0.02)"],
+  .admin-light-mode [style*="background: rgba(255,255,255,0.03)"],
+  .admin-light-mode [style*="background: rgba(255,255,255,0.04)"],
+  .admin-light-mode [style*="background: rgba(255,255,255,0.05)"],
+  .admin-light-mode [style*="background: rgba(255,255,255,0.06)"],
+  .admin-light-mode [style*="background: rgba(255,255,255,0.07)"],
+  .admin-light-mode [style*="background: rgba(255,255,255,0.08)"] {
+    background: rgba(0, 0, 0, 0.04) !important;
+  }
+
+  /* ============================================================
+     INLINE TEXT COLOR NOTE:
+     Sidebar/Header already use isDarkMode tokens to set correct light
+     colors via inline styles. Do NOT override rgba/rgb inline colors here
+     or it breaks the sidebar. Only Tailwind *class*-based text overrides
+     are applied above (text-white → #111827, with exceptions for colored bg).
+  ============================================================ */
+
+  /* gray text */
+  .admin-light-mode [style*="color: rgb(170, 170, 170)"],
+  .admin-light-mode [style*="color: rgb(85, 85, 85)"] {
+    color: #111827 !important;
+  }
+
+  /* ============================================================
+     GLOBAL INLINE WHITE TEXT OVERRIDE
+     Fixes invisible text on dashboard cards in Light Mode.
+  ============================================================ */
+  .admin-light-mode [style*="color: rgb(255, 255, 255)"],
+  .admin-light-mode [style*="color: rgb(250, 250, 250)"],
+  .admin-light-mode [style*="color: #fff"],
+  .admin-light-mode [style*="color:#fff"],
+  .admin-light-mode [style*="color: #ffffff"],
+  .admin-light-mode [style*="color:#ffffff"],
+  .admin-light-mode [color="#fff"],
+  .admin-light-mode [color="#ffffff"] {
+    color: #111827 !important;
+  }
+
+  /* rgba white text */
+  .admin-light-mode [style*="color: rgba(255, 255, 255"],
+  .admin-light-mode [style*="color: rgba(255,255,255"],
+  .admin-light-mode [color*="rgba(255, 255, 255"],
+  .admin-light-mode [color*="rgba(255,255,255"] {
+    color: #111827 !important;
+  }
+
+  /* === ADDITIONAL LIGHT MODE FIXES === */
+
+  /* Fix: inline buttons with rgba(59,130,246,0.2) bg + #60a5fa text (e.g. Lịch sử kích hoạt) */
+  .admin-light-mode button[style*="background: rgba(59, 130, 246"],
+  .admin-light-mode button[style*="background-color: rgba(59, 130, 246"] {
+    background: rgba(59, 130, 246, 0.12) !important;
+    color: #1d4ed8 !important;
+    border: 1px solid rgba(59, 130, 246, 0.3) !important;
+  }
+  .admin-light-mode button[style*="background: rgba(59, 130, 246"] *,
+  .admin-light-mode button[style*="background-color: rgba(59, 130, 246"] * {
+    color: #1d4ed8 !important;
+  }
+
+  /* Fix: inline span/icon text color: rgb(96, 165, 250) = #60a5fa too light */
+  .admin-light-mode [style*="color: rgb(96, 165, 250)"] {
+    color: #1d4ed8 !important;
+  }
+
+  /* Fix: gray text with rgba(255,255,255,0.4 to 0.8) = invisible */
+  .admin-light-mode [style*="color: rgba(255, 255, 255, 0.4)"],
+  .admin-light-mode [style*="color: rgba(255, 255, 255, 0.5)"],
+  .admin-light-mode [style*="color: rgba(255, 255, 255, 0.6)"],
+  .admin-light-mode [style*="color: rgba(255,255,255,0.4)"],
+  .admin-light-mode [style*="color: rgba(255,255,255,0.5)"],
+  .admin-light-mode [style*="color: rgba(255,255,255,0.6)"],
+  .admin-light-mode [style*="color: rgba(255,255,255,0.7)"],
+  .admin-light-mode [style*="color: rgba(255, 255, 255, 0.7)"],
+  .admin-light-mode [style*="color: rgba(255,255,255,0.8)"],
+  .admin-light-mode [style*="color: rgba(255, 255, 255, 0.8)"] {
+    color: #374151 !important;
+  }
+
+  /* Fix: combo bar chart / lists – name labels with white/transparent text */
+  .admin-light-mode [style*="color: rgba(255, 255, 255, 0.9)"],
+  .admin-light-mode [style*="color: rgba(255,255,255,0.9)"],
+  .admin-light-mode [style*="color: rgba(255, 255, 255, 0.95)"],
+  .admin-light-mode [style*="color: rgba(255,255,255,0.95)"],
+  .admin-light-mode [style*="color: #F8FAFC"],
+  .admin-light-mode [style*="color: #eee"],
+  .admin-light-mode [style*="color:#F8FAFC"],
+  .admin-light-mode [style*="color:#eee"],
+  .admin-light-mode [style*="color: rgb(248, 250, 252)"],
+  .admin-light-mode [style*="color: rgb(238, 238, 238)"] {
+    color: #111827 !important;
+  }
+
+  /* Fix: combo filter buttons text - #888 to darker gray */
+  .admin-light-mode [style*="color: #888"],
+  .admin-light-mode [style*="color:#888"],
+  .admin-light-mode [style*="color: rgb(136, 136, 136)"] {
+    color: #374151 !important;
+  }
+  
+  /* Fix: Combo Revenue chart - #94A3B8 (light gray) */
+  .admin-light-mode [style*="color: #94A3B8"],
+  .admin-light-mode [style*="color:#94A3B8"],
+  .admin-light-mode [style*="color: rgb(148, 163, 184)"],
+  .admin-light-mode [style*="color: rgb(100, 116, 139)"] {
+    color: #4b5563 !important;
+  }
+
+  /* Fix: inline bg rgba(20,20,20,0.92) = dark tooltip background */
+  .admin-light-mode [style*="background: rgba(20, 20, 20"],
+  .admin-light-mode [style*="background-color: rgba(20, 20, 20"] {
+    background: rgba(255, 255, 255, 0.97) !important;
+    border-color: rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12) !important;
+  }
+
+  /* Fix: Combo filter pills (border-only colored buttons) – ensure text is dark */
+  .admin-light-mode [style*="border:"][style*="color:"][style*="background: transparent"],
+  .admin-light-mode [style*="border:"][style*="color:"][style*="background:transparent"] {
+    color: #111827 !important;
+  }
+
+  /* Fix: badge tags bg-black/30 = dark tag on light background */
+  .admin-light-mode .bg-black\/30 {
+    background: rgba(0, 0, 0, 0.07) !important;
+    color: #374151 !important;
+  }
+  .admin-light-mode [style*="background: rgba(0, 0, 0, 0.3)"],
+  .admin-light-mode [style*="background-color: rgba(0, 0, 0, 0.3)"],
+  .admin-light-mode [style*="background: rgba(0,0,0,0.3)"] {
+    background: rgba(0, 0, 0, 0.06) !important;
+  }
+
+  /* Fix: rgba(0,0,0,0.92) near-black bg -> white background */
+  .admin-light-mode [style*="background: rgba(0, 0, 0, 0.92)"],
+  .admin-light-mode [style*="background-color: rgba(0, 0, 0, 0.92)"] {
+    background: rgba(255,255,255,0.97) !important;
+    border-color: rgba(0, 0, 0, 0.1) !important;
+  }
+
+  /* Fix: Saving Modal text colors in AutoGenerateShowtimesPage */
+  .admin-light-mode .text-\[\#e5e2e1\],
+  .admin-light-mode .text-\[\#c2c6d6\],
+  .admin-light-mode .text-\[\#adc6ff\],
+  .admin-light-mode [color="#adc6ff"] {
+    color: #111827 !important;
+  }
+  
+  .admin-light-mode .bg-\[\#571bc1\]\/20 {
+    background-color: rgba(87, 27, 193, 0.1) !important;
+    border-color: rgba(87, 27, 193, 0.3) !important;
+  }
+
+  /* Fix: inline modal backgrounds that are faint white */
+  .admin-light-mode [style*="background: rgba(255, 255, 255, 0.06)"],
+  .admin-light-mode [style*="background: rgba(255,255,255,0.06)"] {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-color: rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1) !important;
+  }
+
+  /* Fix: bg-[#171717] – BadWord modal left panel */
+  .admin-light-mode .bg-\[\#171717\] {
+    background: #f8f8f8 !important;
+  }
+  .admin-light-mode [style*="background: rgb(23, 23, 23)"],
+  .admin-light-mode [style*="background-color: rgb(23, 23, 23)"] {
+    background: #f8f8f8 !important;
+  }
+
+  /* Fix: rgba(156, 163, 175) = gray-400 in inline styles */
+  .admin-light-mode [style*="color: rgba(156, 163, 175"] {
+    color: #374151 !important;
+  }
+
+  /* Fix: combo bar chart progress bar track */
+  .admin-light-mode [style*="background: rgb(30, 41, 59)"] {
+    background: #e2e8f0 !important;
+  }
+  
+  /* Fix: Sidebar sub item text rgba(0,0,0,0.45) */
+  .admin-light-mode [style*="color: rgba(0, 0, 0, 0.45)"],
+  .admin-light-mode [style*="color: rgba(0,0,0,0.45)"] {
+    color: #111827 !important;
+  }
+
+  /* ============================================================
+     EXCEPTIONS TO GLOBAL WHITE TEXT OVERRIDE
+     Elements that themselves have a colored background should KEEP white text
+  ============================================================ */
+  .admin-light-mode [style*="background: rgb(226, 39, 83)"],
+  .admin-light-mode [style*="background-color: rgb(226, 39, 83)"],
+  .admin-light-mode [style*="background: #dc2626"],
+  .admin-light-mode [style*="background: #dc2626"],
+  .admin-light-mode [style*="background-color: #dc2626"],
+  .admin-light-mode [style*="background-color: #dc2626"],
+  .admin-light-mode [style*="background: rgb(16, 185, 129)"],
+  .admin-light-mode [style*="background-color: rgb(16, 185, 129)"],
+  .admin-light-mode [style*="background: rgb(59, 130, 246)"],
+  .admin-light-mode [style*="background-color: rgb(59, 130, 246)"] {
+    color: #ffffff !important;
+  }
+
+  /* SVG STROKES (lucide-react icons) */
+  .admin-light-mode [stroke*="rgba(255, 255, 255"],
+  .admin-light-mode [stroke*="rgba(255,255,255"] {
+    stroke: #111827 !important;
+  }
+
+  /* Empty state icons (faint indigo and green) -> black for visibility */
+  .admin-light-mode [stroke*="rgba(99, 102, 241"],
+  .admin-light-mode [stroke*="rgba(99,102,241"],
+  .admin-light-mode [stroke*="rgba(34, 197, 94"],
+  .admin-light-mode [stroke*="rgba(34,197,94"] {
+    stroke: #111827 !important;
+  }
+
+  /* Override native input icons (date/time picker) color-scheme */
+  .admin-light-mode input,
+  .admin-light-mode select,
+  .admin-light-mode textarea {
+    color-scheme: light !important;
+  }
+
+
+  /* SVG fills for charts (Recharts) */
+  .admin-light-mode [fill="#fff"],
+  .admin-light-mode [fill="#ffffff"],
+  .admin-light-mode [fill="rgb(255, 255, 255)"] {
+    fill: #111827 !important;
+  }
+
+  .admin-light-mode [fill*="rgba(255, 255, 255"],
+  .admin-light-mode [fill*="rgba(255,255,255"] {
+    fill: #111827 !important;
+  }
+
+  /* EXCEPTION: keep white text inside red/gradient backgrounds */
+  /* For descendants */
+  .admin-light-mode [style*="background: rgb(226, 39, 83)"] [style*="color: rgb(255, 255, 255)"],
+  .admin-light-mode [style*="background-color: rgb(226, 39, 83)"] [style*="color: rgb(255, 255, 255)"],
+  .admin-light-mode [style*="linear-gradient"] [style*="color: rgb(255, 255, 255)"],
+  .admin-light-mode [class*="bg-[#dc2626]"] [style*="color: rgb(255, 255, 255)"],
+  .admin-light-mode [style*="background: rgb(226, 39, 83)"] [color="#fff"],
+  .admin-light-mode [style*="linear-gradient"] [color="#fff"],
+  .admin-light-mode [style*="linear-gradient"] [color="#ffffff"],
+  /* #dc2626 → rgb(220, 38, 38) — pagination & inline red buttons */
+  .admin-light-mode [style*="background: rgb(220, 38, 38)"] [style*="color"],
+  .admin-light-mode [style*="background-color: rgb(220, 38, 38)"] [style*="color"],
+  .admin-light-mode [style*="background: rgb(220, 38, 38)"],
+  .admin-light-mode [style*="background-color: rgb(220, 38, 38)"],
+  /* #b91c1c → rgb(185, 28, 28) — hover state of red buttons */
+  .admin-light-mode [style*="background: rgb(185, 28, 28)"] [style*="color"],
+  .admin-light-mode [style*="background-color: rgb(185, 28, 28)"] [style*="color"],
+  .admin-light-mode [style*="background: rgb(185, 28, 28)"],
+  .admin-light-mode [style*="background-color: rgb(185, 28, 28)"],
+  /* For the element itself */
+  .admin-light-mode [style*="background: rgb(226, 39, 83)"][style*="color: rgb(255, 255, 255)"],
+  .admin-light-mode [style*="background-color: rgb(226, 39, 83)"][style*="color: rgb(255, 255, 255)"],
+  .admin-light-mode [style*="linear-gradient"][style*="color: rgb(255, 255, 255)"],
+  .admin-light-mode [style*="background: rgb(16, 185, 129)"][style*="color: rgb(255, 255, 255)"],
+  .admin-light-mode [style*="background-color: rgb(16, 185, 129)"][style*="color: rgb(255, 255, 255)"],
+  .admin-light-mode [style*="background: rgb(59, 130, 246)"][style*="color: rgb(255, 255, 255)"],
+  .admin-light-mode [style*="background-color: rgb(59, 130, 246)"][style*="color: rgb(255, 255, 255)"] {
+    color: #ffffff !important;
+  }
+
+  /* All children inside #dc2626 rgb(220,38,38) red bg stay white */
+  .admin-light-mode [style*="background: rgb(220, 38, 38)"] *,
+  .admin-light-mode [style*="background-color: rgb(220, 38, 38)"] *,
+  .admin-light-mode [style*="background: rgb(185, 28, 28)"] *,
+  .admin-light-mode [style*="background-color: rgb(185, 28, 28)"] * {
+    color: #ffffff !important;
+  }
+
+
+
+
+  /* "Tạo tài khoản" primary button (linear gradient blue) */
+  .admin-light-mode [style*="linear-gradient(135deg, rgb(59, 130, 246) 0%, rgb(99, 102, 241) 100%)"],
+  .admin-light-mode [style*="linear-gradient(135deg, #3b82f6 0%, #6366f1 100%)"],
+  .admin-light-mode [style*="linear-gradient(135deg, #3b82f6, #6366f1)"] {
+    background: #dc2626 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 16px rgba(220,38,38, 0.3) !important;
+    border: none !important;
+  }
+
+  /* ============================================================
+     INLINE STYLE OVERRIDES — BORDERS
+  ============================================================ */
+  .admin-light-mode [style*="32px rgba(0, 0, 0, 0.4)"],
+  .admin-light-mode [style*="32px rgba(0,0,0,0.4)"],
+  .admin-light-mode div:has(> table.w-full.border-collapse) {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+    border: 1px solid rgba(0,0,0,0.1) !important;
+    background: #ffffff !important;
+  }
+  
+  .admin-light-mode [style*="border: 1px solid rgba(255, 255, 255"],
+  .admin-light-mode [style*="border: 1px solid rgba(255,255,255"],
+  .admin-light-mode [style*="border: 2px solid rgba(255, 255, 255"],
+  .admin-light-mode [style*="border: 2px solid rgba(255,255,255"],
+  .admin-light-mode [style*="borderLeft: 2px solid rgba(255, 255, 255"],
+  .admin-light-mode [style*="borderLeft: 2px solid rgba(255,255,255"],
+  .admin-light-mode [style*="border-left: 2px solid rgba(255, 255, 255"],
+  .admin-light-mode [style*="border-left: 2px solid rgba(255,255,255"],
+  .admin-light-mode [style*="border-bottom: 1px solid rgba(255, 255, 255"],
+  .admin-light-mode [style*="border-bottom: 1px solid rgba(255,255,255"],
+  .admin-light-mode [style*="border-top: 1px solid rgba(255, 255, 255"],
+  .admin-light-mode [style*="border-right: 1px solid rgba(255, 255, 255"],
+  .admin-light-mode [style*="border-color: rgba(255, 255, 255"],
+  .admin-light-mode [style*="border-color: rgba(255,255,255"] {
+    border-color: rgba(0, 0, 0, 0.1) !important;
+  }
+
+  /* ============================================================
+     INPUTS & SELECT
+  ============================================================ */
+  .admin-light-mode input:not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]):not([type="range"]) {
+    color: #111827 !important;
+    background: transparent !important;
+  }
+
+  .admin-light-mode input::placeholder,
+  .admin-light-mode textarea::placeholder {
+    color: rgba(0, 0, 0, 0.35) !important;
+  }
+
+  .admin-light-mode textarea {
+    color: #111827 !important;
+  }
+
+  .admin-light-mode select {
+    background: #ffffff !important;
+    color: #111827 !important;
+    border-color: rgba(0, 0, 0, 0.12) !important;
+  }
+
+  .admin-light-mode select option {
+    background: #ffffff !important;
+    color: #111827 !important;
+  }
+
+  /* ============================================================
+     TABLE
+  ============================================================ */
+  .admin-light-mode table {
+    background: #ffffff !important;
+  }
+
+  .admin-light-mode thead tr,
+  .admin-light-mode thead th {
+    background: #f9fafb !important;
+    color: #000000 !important;
+    border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+  }
+
+  .admin-light-mode tbody tr {
+    background: #ffffff !important;
+  }
+
+  .admin-light-mode tbody tr:hover {
+    background: #f5f7fa !important;
+  }
+
+  .admin-light-mode td {
+    color: #111827 !important;
+    border-bottom-color: rgba(0, 0, 0, 0.05) !important;
+  }
+
+  /* ============================================================
+     HEADINGS
+  ============================================================ */
+  .admin-light-mode h1,
+  .admin-light-mode h2,
+  .admin-light-mode h3,
+  .admin-light-mode h4,
+  .admin-light-mode h5 {
+    color: #111827 !important;
+  }
+
+  /* ============================================================
+     SCROLLBAR
+  ============================================================ */
+  .admin-light-mode ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.18) !important;
+  }
+
+  .admin-light-mode ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3) !important;
+  }
+
+  /* ============================================================
+     AUTOFILL
+  ============================================================ */
+  .admin-light-mode input:-webkit-autofill,
+  .admin-light-mode input:-webkit-autofill:hover,
+  .admin-light-mode input:-webkit-autofill:focus,
+  .admin-light-mode input:-webkit-autofill:active {
+    -webkit-text-fill-color: #111827 !important;
+    box-shadow: 0 0 0 1000px #ffffff inset !important;
+  }
+
+  /* ============================================================
+   TABLE ACTION BUTTONS
+============================================================ */
+  .action-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .action-btn.edit {
+    background: rgba(59, 130, 246, 0.1) !important;
+    border: 1px solid rgba(59, 130, 246, 0.25) !important;
+    color: #3b82f6 !important;
+  }
+
+  .action-btn.edit:hover {
+    background: rgba(59, 130, 246, 0.2) !important;
+  }
+
+  .action-btn.delete {
+    background: rgba(220,38,38, 0.1) !important;
+    border: 1px solid rgba(220,38,38, 0.25) !important;
+    color: #dc2626 !important;
+  }
+
+  .action-btn.delete:hover {
+    opacity: 0.75;
+  }
+
+  .action-btn.hide {
+    background: rgba(107, 114, 128, 0.1) !important;
+    border: 1px solid rgba(107, 114, 128, 0.25) !important;
+    color: #6b7280 !important;
+  }
+
+  .action-btn.hide:hover {
+    background: rgba(107, 114, 128, 0.2) !important;
+  }
+
+  .action-btn.lock {
+    background: rgba(245, 158, 11, 0.1) !important;
+    border: 1px solid rgba(245, 158, 11, 0.25) !important;
+    color: #f59e0b !important;
+  }
+
+  .action-btn.lock:hover {
+    background: rgba(245, 158, 11, 0.2) !important;
+  }
+
+  .action-btn.restore {
+    background: rgba(16, 185, 129, 0.1) !important;
+    border: 1px solid rgba(16, 185, 129, 0.25) !important;
+    color: #10b981 !important;
+  }
+
+  .action-btn.restore:hover {
+    background: rgba(16, 185, 129, 0.2) !important;
+  }
+
+  /* ============================================================
+     TOAST CONTAINER FIX FOR LIGHT MODE
+  ============================================================ */
+  .admin-light-mode [role="status"] h3,
+  .admin-light-mode [role="status"] h3[style] {
+    color: #ffffff !important;
+  }
+  .admin-light-mode [role="status"] p,
+  .admin-light-mode [role="status"] p[style] {
+    color: rgba(255, 255, 255, 0.75) !important;
+  }
+  .admin-light-mode [role="status"] button,
+  .admin-light-mode [role="status"] button[style] {
+    color: rgba(255, 255, 255, 0.5) !important;
+  }
+
+  /* ============================================================
+     MEMBERSHIP REVIEW CARD EFFECTS
+  ============================================================ */
+  .membership-review-card {
+    isolation: isolate;
+    background-size: 220% 220%;
+  }
+
+  .membership-review-card .membership-review-avatar,
+  .membership-review-card .membership-review-badge,
+  .membership-review-card .membership-review-author,
+  .membership-review-card .membership-review-footer {
+    transition: border-color 250ms ease, color 250ms ease, box-shadow 250ms ease,
+      text-shadow 250ms ease, background-color 250ms ease;
+  }
+
+  .membership-review-action {
+    border-radius: 8px;
+    padding: 4px 6px;
+    border: 1px solid transparent;
+  }
+
+  .membership-review-content {
+    border-left: 2px solid transparent;
+    border-radius: 0 9px 9px 0;
+    padding: 8px 11px;
+    transition:
+      color 250ms ease,
+      border-color 250ms ease,
+      background 250ms ease,
+      box-shadow 250ms ease;
+  }
+
+  .membership-review-report {
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    border-radius: 9px;
+  }
+
+  .membership-review-card--vip-0 {
+    --member-accent-rgb: 156, 163, 175;
+  }
+
+  .membership-review-card--vip-1 {
+    --member-accent-rgb: 192, 192, 220;
+    border-color: rgba(var(--member-accent-rgb), 0.42) !important;
+    background-image:
+      radial-gradient(circle at 8% 0%,
+        rgba(226, 232, 255, 0.1),
+        transparent 30%),
+      linear-gradient(135deg,
+        rgba(var(--member-accent-rgb), 0.075),
+        transparent 42%);
+    box-shadow:
+      0 8px 28px rgba(var(--member-accent-rgb), 0.09),
+      inset 0 1px 0 rgba(255, 255, 255, 0.025);
+  }
+
+  .membership-review-card--vip-1:hover {
+    border-color: rgba(222, 227, 255, 0.68) !important;
+    box-shadow:
+      0 12px 34px rgba(var(--member-accent-rgb), 0.15),
+      0 0 16px rgba(var(--member-accent-rgb), 0.08);
+  }
+
+  .membership-review-card--vip-1 .membership-review-author {
+    background: linear-gradient(90deg, #b9bdd3, #f1f3ff, #b9bdd3);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+    text-shadow: 0 0 12px rgba(var(--member-accent-rgb), 0.14);
+  }
+
+  .membership-review-card--vip-1 .membership-review-avatar {
+    border-color: rgba(218, 222, 247, 0.78) !important;
+    box-shadow:
+      0 0 12px rgba(var(--member-accent-rgb), 0.22),
+      0 0 0 2px rgba(var(--member-accent-rgb), 0.06);
+  }
+
+  .membership-review-card--vip-1 .membership-review-badge {
+    color: #d7dbf2 !important;
+    border-color: rgba(var(--member-accent-rgb), 0.38) !important;
+    background: linear-gradient(
+      110deg,
+      rgba(192, 192, 220, 0.11),
+      rgba(236, 239, 255, 0.16),
+      rgba(192, 192, 220, 0.11)
+    ) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      0 0 12px rgba(var(--member-accent-rgb), 0.16);
+    text-shadow: 0 0 7px rgba(var(--member-accent-rgb), 0.28);
+  }
+
+  .membership-review-card--vip-2 {
+    --member-accent-rgb: 245, 166, 35;
+    border-color: rgba(var(--member-accent-rgb), 0.6) !important;
+    background-image:
+      radial-gradient(circle at 10% 0%,
+        rgba(255, 224, 138, 0.17),
+        transparent 32%),
+      linear-gradient(125deg,
+        rgba(var(--member-accent-rgb), 0.14),
+        transparent 38%,
+        rgba(255, 224, 138, 0.065));
+    box-shadow:
+      0 10px 36px rgba(var(--member-accent-rgb), 0.16),
+      0 0 18px rgba(255, 224, 138, 0.07),
+      inset 0 1px 0 rgba(255, 232, 170, 0.06);
+  }
+
+  .membership-review-card--vip-2:hover {
+    border-color: rgba(255, 221, 128, 0.9) !important;
+    box-shadow:
+      0 15px 44px rgba(var(--member-accent-rgb), 0.28),
+      0 0 26px rgba(255, 224, 138, 0.14);
+  }
+
+  .membership-review-card--vip-2 .membership-review-author {
+    background: linear-gradient(90deg, #e9960b, #ffe9a8, #ffffff, #ffd268, #e9960b);
+    background-size: 220% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+    text-shadow:
+      0 0 14px rgba(var(--member-accent-rgb), 0.36),
+      0 0 22px rgba(255, 224, 138, 0.14);
+    animation: vip-2-text-shimmer 4.6s linear infinite;
+  }
+
+  .membership-review-card--vip-2 .membership-review-avatar {
+    border-color: rgba(255, 215, 105, 0.9) !important;
+    outline: 1px solid rgba(var(--member-accent-rgb), 0.3);
+    outline-offset: 2px;
+    box-shadow:
+      0 0 17px rgba(var(--member-accent-rgb), 0.36),
+      0 0 28px rgba(255, 224, 138, 0.1);
+  }
+
+  .membership-review-card--vip-2 .membership-review-badge {
+    color: #ffe7a1 !important;
+    border-color: rgba(255, 211, 91, 0.58) !important;
+    background: linear-gradient(
+      110deg,
+      rgba(126, 76, 0, 0.5),
+      rgba(245, 166, 35, 0.24),
+      rgba(126, 76, 0, 0.5)
+    ) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 239, 194, 0.12),
+      0 0 13px rgba(var(--member-accent-rgb), 0.35),
+      0 0 22px rgba(255, 224, 138, 0.1);
+    text-shadow: 0 0 8px rgba(255, 224, 138, 0.48);
+  }
+
+  .membership-review-card--vip-3 {
+    --member-accent-rgb: 96, 212, 245;
+    border-color: rgba(142, 231, 255, 0.88) !important;
+    background-image:
+      radial-gradient(circle at 12% 0%, rgba(96, 212, 245, 0.2), transparent 34%),
+      radial-gradient(circle at 88% 100%, rgba(139, 92, 246, 0.18), transparent 40%),
+      linear-gradient(120deg,
+        rgba(96, 212, 245, 0.1),
+        transparent 36%,
+        rgba(139, 92, 246, 0.09),
+        transparent 74%);
+    box-shadow:
+      0 0 0 1px rgba(96, 212, 245, 0.2),
+      0 12px 38px rgba(96, 212, 245, 0.2),
+      0 0 28px rgba(139, 92, 246, 0.12);
+    animation: vip-3-review-glow 3.4s ease-in-out infinite;
+  }
+
+  .membership-review-card--vip-3 > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .membership-review-card--vip-3::before,
+  .membership-review-card--vip-3::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+  }
+
+  .membership-review-card--vip-3::before {
+    z-index: 0;
+    padding: 2px;
+    background: linear-gradient(
+      110deg,
+      #60d4f5,
+      #dff9ff,
+      #8b5cf6,
+      #ecb8ff,
+      #60d4f5
+    );
+    background-size: 300% 300%;
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    filter: drop-shadow(0 0 8px rgba(96, 212, 245, 0.65));
+    animation: vip-3-border-flow 3s linear infinite;
+  }
+
+  .membership-review-card--vip-3::after {
+    z-index: 0;
+    inset: 1px;
+    background:
+      radial-gradient(circle at 18% 20%, rgba(133, 231, 255, 0.15), transparent 27%),
+      radial-gradient(circle at 78% 72%, rgba(167, 139, 250, 0.16), transparent 30%);
+    opacity: 0.75;
+    animation: vip-3-aurora 4.2s ease-in-out infinite alternate;
+  }
+
+  .membership-review-card--vip-3:hover {
+    border-color: #dff9ff !important;
+    box-shadow:
+      0 0 0 1px rgba(223, 249, 255, 0.36),
+      0 18px 52px rgba(96, 212, 245, 0.34),
+      0 0 38px rgba(139, 92, 246, 0.24) !important;
+  }
+
+  .membership-review-card--vip-3 .membership-review-author {
+    background: linear-gradient(90deg, #73e2ff, #ffffff, #d8c7ff, #a78bfa, #73e2ff);
+    background-size: 260% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+    animation: vip-3-text-shimmer 2.6s linear infinite;
+    text-shadow:
+      0 0 12px rgba(96, 212, 245, 0.48),
+      0 0 24px rgba(139, 92, 246, 0.22);
+  }
+
+  .membership-review-card--vip-3 .membership-review-avatar {
+    border-color: #bdefff !important;
+    outline: 2px solid rgba(139, 92, 246, 0.34);
+    outline-offset: 2px;
+    animation: vip-3-avatar-pulse 2.4s ease-in-out infinite;
+  }
+
+  .membership-review-card--vip-3 .membership-review-badge {
+    color: #effcff !important;
+    border-color: rgba(180, 239, 255, 0.76) !important;
+    background: linear-gradient(
+      105deg,
+      rgba(8, 99, 126, 0.72),
+      rgba(77, 45, 146, 0.7),
+      rgba(8, 99, 126, 0.72)
+    ) !important;
+    background-size: 220% auto !important;
+    box-shadow:
+      inset 0 0 10px rgba(255, 255, 255, 0.1),
+      0 0 10px rgba(96, 212, 245, 0.5),
+      0 0 20px rgba(139, 92, 246, 0.28);
+    text-shadow: 0 0 8px rgba(223, 249, 255, 0.8);
+    animation: vip-3-badge-shimmer 2.8s linear infinite;
+  }
+
+  .membership-review-card--vip-3 .membership-review-footer {
+    border-color: rgba(129, 222, 255, 0.38) !important;
+    box-shadow: 0 -1px 0 rgba(139, 92, 246, 0.08);
+  }
+
+  .membership-review-card--vip-3 .membership-review-action {
+    border: 1px solid transparent;
+  }
+
+  .membership-review-card--vip-3 .membership-review-action:hover {
+    border-color: rgba(143, 226, 255, 0.44);
+    background: linear-gradient(
+      120deg,
+      rgba(96, 212, 245, 0.18),
+      rgba(139, 92, 246, 0.14)
+    );
+    color: #bcefff;
+    box-shadow:
+      0 0 12px rgba(96, 212, 245, 0.28),
+      0 0 18px rgba(139, 92, 246, 0.14);
+    transform: translateY(-1px);
+  }
+
+  .membership-review-card--vip-1 .membership-review-footer {
+    border-color: rgba(var(--member-accent-rgb), 0.22) !important;
+  }
+
+  .membership-review-card--vip-2 .membership-review-footer {
+    border-color: rgba(var(--member-accent-rgb), 0.34) !important;
+    box-shadow: 0 -1px 0 rgba(255, 224, 138, 0.05);
+  }
+
+  .membership-review-card--vip-1 .membership-review-action:hover {
+    background: rgba(var(--member-accent-rgb), 0.11);
+    box-shadow: 0 0 14px rgba(var(--member-accent-rgb), 0.12);
+  }
+
+  .membership-review-card--vip-2 .membership-review-action:hover {
+    background: rgba(var(--member-accent-rgb), 0.17);
+    box-shadow:
+      0 0 15px rgba(var(--member-accent-rgb), 0.22),
+      0 0 22px rgba(255, 224, 138, 0.07);
+  }
+
+  /* Review content and reaction controls follow each membership theme. */
+  .membership-review-card--vip-0 .membership-review-content {
+    border-left-color: rgba(156, 163, 175, 0.24);
+    background: rgba(156, 163, 175, 0.025);
+  }
+
+  .membership-review-card--vip-0 .membership-review-action:hover,
+  .membership-review-card--vip-0 .membership-review-report:hover {
+    border-color: rgba(156, 163, 175, 0.24);
+    background: rgba(156, 163, 175, 0.09);
+    box-shadow: 0 0 10px rgba(156, 163, 175, 0.08);
+  }
+
+  .membership-review-card--vip-1 .membership-review-content {
+    color: #5f6374 !important;
+    border-left-color: rgba(210, 214, 239, 0.5);
+    background: linear-gradient(
+      100deg,
+      rgba(192, 192, 220, 0.1),
+      rgba(192, 192, 220, 0.025) 58%,
+      transparent
+    );
+    box-shadow: inset 8px 0 16px rgba(192, 192, 220, 0.035);
+  }
+
+  .dark .membership-review-card--vip-1 .membership-review-content {
+    color: #bec2d4 !important;
+  }
+
+  .membership-review-card--vip-1 .membership-review-action:hover,
+  .membership-review-card--vip-1 .membership-review-report:hover {
+    color: #dce0f7 !important;
+    border-color: rgba(210, 214, 239, 0.34);
+    background: linear-gradient(
+      120deg,
+      rgba(192, 192, 220, 0.16),
+      rgba(232, 235, 255, 0.08)
+    );
+    box-shadow: 0 0 13px rgba(192, 192, 220, 0.16);
+  }
+
+  .membership-review-card--vip-1 .membership-review-action[data-active="true"] {
+    color: #e5e8ff !important;
+    border-color: rgba(218, 222, 247, 0.42);
+    background: rgba(192, 192, 220, 0.17);
+    text-shadow: 0 0 8px rgba(218, 222, 247, 0.46);
+  }
+
+  .membership-review-card--vip-2 .membership-review-content {
+    color: #715b32 !important;
+    border-left-color: rgba(255, 209, 83, 0.7);
+    background: linear-gradient(
+      100deg,
+      rgba(245, 166, 35, 0.14),
+      rgba(245, 166, 35, 0.035) 62%,
+      transparent
+    );
+    box-shadow:
+      inset 9px 0 18px rgba(245, 166, 35, 0.055),
+      0 0 14px rgba(245, 166, 35, 0.035);
+  }
+
+  .dark .membership-review-card--vip-2 .membership-review-content {
+    color: #d7c8aa !important;
+  }
+
+  .membership-review-card--vip-2 .membership-review-action:hover,
+  .membership-review-card--vip-2 .membership-review-report:hover {
+    color: #ffe29a !important;
+    border-color: rgba(255, 209, 83, 0.52);
+    background: linear-gradient(
+      120deg,
+      rgba(245, 166, 35, 0.22),
+      rgba(255, 224, 138, 0.1)
+    );
+    box-shadow:
+      0 0 14px rgba(245, 166, 35, 0.26),
+      0 0 22px rgba(255, 224, 138, 0.08);
+  }
+
+  .membership-review-card--vip-2 .membership-review-action[data-active="true"] {
+    color: #ffd66f !important;
+    border-color: rgba(255, 209, 83, 0.64);
+    background: rgba(245, 166, 35, 0.2);
+    text-shadow: 0 0 9px rgba(255, 215, 105, 0.58);
+    box-shadow: 0 0 15px rgba(245, 166, 35, 0.24);
+  }
+
+  .membership-review-card--vip-3 .membership-review-content {
+    color: #386879 !important;
+    border-left-color: rgba(118, 225, 255, 0.84);
+    background:
+      radial-gradient(circle at 5% 50%, rgba(96, 212, 245, 0.16), transparent 34%),
+      linear-gradient(
+        105deg,
+        rgba(96, 212, 245, 0.1),
+        rgba(139, 92, 246, 0.07) 62%,
+        transparent
+      );
+    box-shadow:
+      inset 10px 0 20px rgba(96, 212, 245, 0.07),
+      0 0 18px rgba(139, 92, 246, 0.055);
+  }
+
+  .dark .membership-review-card--vip-3 .membership-review-content {
+    color: #c4dce6 !important;
+  }
+
+  .membership-review-card--vip-3 .membership-review-like:hover,
+  .membership-review-card--vip-3 .membership-review-like[data-active="true"] {
+    color: #8ee9ff !important;
+    border-color: rgba(118, 225, 255, 0.58);
+    background: rgba(96, 212, 245, 0.17);
+    text-shadow: 0 0 9px rgba(96, 212, 245, 0.72);
+    box-shadow:
+      0 0 14px rgba(96, 212, 245, 0.34),
+      0 0 22px rgba(96, 212, 245, 0.12);
+  }
+
+  .membership-review-card--vip-3 .membership-review-dislike:hover,
+  .membership-review-card--vip-3 .membership-review-dislike[data-active="true"] {
+    color: #c5adff !important;
+    border-color: rgba(167, 139, 250, 0.58);
+    background: rgba(139, 92, 246, 0.17);
+    text-shadow: 0 0 9px rgba(167, 139, 250, 0.7);
+    box-shadow:
+      0 0 14px rgba(139, 92, 246, 0.34),
+      0 0 22px rgba(139, 92, 246, 0.12);
+  }
+
+  .membership-review-card--vip-3 .membership-review-report:hover {
+    color: #f0b6ff !important;
+    border-color: rgba(223, 154, 255, 0.54);
+    background: rgba(192, 92, 246, 0.15);
+    text-shadow: 0 0 9px rgba(223, 154, 255, 0.64);
+    box-shadow:
+      0 0 14px rgba(192, 92, 246, 0.28),
+      0 0 22px rgba(96, 212, 245, 0.08);
+  }
+
+  .membership-review-card .membership-review-report[data-active="true"] {
+    color: #ef4444 !important;
+    border-color: rgba(239, 68, 68, 0.36);
+    background: rgba(239, 68, 68, 0.11);
+    box-shadow: 0 0 12px rgba(239, 68, 68, 0.16);
+  }
+
+  /* Light mode uses deeper accents so gradients remain readable on white cards. */
+  :root:not(.dark) .membership-review-card {
+    color: #1f2937;
+  }
+
+  :root:not(.dark) .membership-review-card--vip-0 .membership-review-content {
+    color: #4b5563 !important;
+    border-left-color: rgba(75, 85, 99, 0.34);
+    background: rgba(100, 116, 139, 0.045);
+  }
+
+  :root:not(.dark) .membership-review-card--vip-0 .membership-review-badge {
+    color: #596170 !important;
+    border-color: rgba(89, 97, 112, 0.3) !important;
+    background: rgba(100, 116, 139, 0.08) !important;
+  }
+
+  :root:not(.dark) .membership-review-card--vip-0 .membership-review-action,
+  :root:not(.dark) .membership-review-card--vip-0 .membership-review-report,
+  :root:not(.dark) .membership-review-card--vip-0 .membership-review-date {
+    color: #64748b !important;
+  }
+
+  :root:not(.dark) .membership-review-card--vip-1 .membership-review-author {
+    background: linear-gradient(90deg, #3f4658, #747b91, #343a4a);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+    text-shadow: 0 0 10px rgba(99, 107, 132, 0.1);
+  }
+
+  :root:not(.dark) .membership-review-card--vip-1 .membership-review-badge {
+    color: #535b73 !important;
+    border-color: rgba(91, 99, 126, 0.34) !important;
+    background: linear-gradient(
+      110deg,
+      rgba(166, 172, 198, 0.19),
+      rgba(229, 232, 244, 0.45),
+      rgba(166, 172, 198, 0.19)
+    ) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.7),
+      0 0 10px rgba(107, 114, 144, 0.13);
+    text-shadow: none;
+  }
+
+  :root:not(.dark) .membership-review-card--vip-1 .membership-review-content {
+    color: #4e5568 !important;
+    border-left-color: rgba(91, 99, 126, 0.48);
+    background: linear-gradient(
+      100deg,
+      rgba(162, 168, 194, 0.14),
+      rgba(192, 192, 220, 0.035) 62%,
+      transparent
+    );
+  }
+
+  :root:not(.dark) .membership-review-card--vip-1 .membership-review-action,
+  :root:not(.dark) .membership-review-card--vip-1 .membership-review-report,
+  :root:not(.dark) .membership-review-card--vip-1 .membership-review-date {
+    color: #626a80 !important;
+  }
+
+  :root:not(.dark) .membership-review-card--vip-1 .membership-review-action:hover,
+  :root:not(.dark) .membership-review-card--vip-1 .membership-review-action[data-active="true"],
+  :root:not(.dark) .membership-review-card--vip-1 .membership-review-report:hover {
+    color: #394156 !important;
+    border-color: rgba(83, 91, 115, 0.38);
+    background: rgba(151, 158, 187, 0.2);
+    text-shadow: none;
+  }
+
+  :root:not(.dark) .membership-review-card--vip-2 .membership-review-author {
+    background: linear-gradient(90deg, #855000, #b87300, #d28b00, #855000);
+    background-size: 220% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+    text-shadow: 0 0 10px rgba(177, 107, 0, 0.12);
+  }
+
+  :root:not(.dark) .membership-review-card--vip-2 .membership-review-badge {
+    color: #855100 !important;
+    border-color: rgba(176, 105, 0, 0.46) !important;
+    background: linear-gradient(
+      110deg,
+      rgba(245, 166, 35, 0.19),
+      rgba(255, 226, 148, 0.48),
+      rgba(245, 166, 35, 0.19)
+    ) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.66),
+      0 0 11px rgba(192, 117, 0, 0.16);
+    text-shadow: none;
+  }
+
+  :root:not(.dark) .membership-review-card--vip-2 .membership-review-content {
+    color: #684b1b !important;
+    border-left-color: rgba(196, 120, 0, 0.66);
+    background: linear-gradient(
+      100deg,
+      rgba(245, 166, 35, 0.16),
+      rgba(255, 224, 138, 0.045) 64%,
+      transparent
+    );
+  }
+
+  :root:not(.dark) .membership-review-card--vip-2 .membership-review-action,
+  :root:not(.dark) .membership-review-card--vip-2 .membership-review-report,
+  :root:not(.dark) .membership-review-card--vip-2 .membership-review-date {
+    color: #936016 !important;
+  }
+
+  :root:not(.dark) .membership-review-card--vip-2 .membership-review-action:hover,
+  :root:not(.dark) .membership-review-card--vip-2 .membership-review-action[data-active="true"],
+  :root:not(.dark) .membership-review-card--vip-2 .membership-review-report:hover {
+    color: #754600 !important;
+    border-color: rgba(184, 108, 0, 0.5);
+    background: rgba(245, 166, 35, 0.2);
+    text-shadow: none;
+  }
+
+  :root:not(.dark) .membership-review-card--vip-3 .membership-review-author {
+    background: linear-gradient(90deg, #05718d, #5b3bb1, #7c3ab7, #05718d);
+    background-size: 260% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+    text-shadow: 0 0 10px rgba(30, 128, 158, 0.13);
+  }
+
+  :root:not(.dark) .membership-review-card--vip-3 .membership-review-badge {
+    color: #ffffff !important;
+    border-color: rgba(29, 115, 150, 0.66) !important;
+    background: linear-gradient(
+      105deg,
+      rgba(5, 113, 141, 0.92),
+      rgba(91, 59, 177, 0.9),
+      rgba(5, 113, 141, 0.92)
+    ) !important;
+    text-shadow: 0 1px 4px rgba(18, 32, 70, 0.5);
+  }
+
+  :root:not(.dark) .membership-review-card--vip-3 .membership-review-content {
+    color: #31586a !important;
+    border-left-color: rgba(5, 124, 158, 0.72);
+    background:
+      radial-gradient(circle at 5% 50%, rgba(55, 190, 228, 0.13), transparent 34%),
+      linear-gradient(
+        105deg,
+        rgba(31, 158, 193, 0.1),
+        rgba(109, 72, 190, 0.07) 64%,
+        transparent
+      );
+  }
+
+  :root:not(.dark) .membership-review-card--vip-3 .membership-review-action,
+  :root:not(.dark) .membership-review-card--vip-3 .membership-review-report,
+  :root:not(.dark) .membership-review-card--vip-3 .membership-review-date {
+    color: #316c83 !important;
+  }
+
+  :root:not(.dark) .membership-review-card--vip-3 .membership-review-like:hover,
+  :root:not(.dark) .membership-review-card--vip-3 .membership-review-like[data-active="true"] {
+    color: #006d88 !important;
+    border-color: rgba(0, 109, 136, 0.48);
+    background: rgba(55, 190, 228, 0.16);
+    text-shadow: none;
+  }
+
+  :root:not(.dark) .membership-review-card--vip-3 .membership-review-dislike:hover,
+  :root:not(.dark) .membership-review-card--vip-3 .membership-review-dislike[data-active="true"] {
+    color: #6032a8 !important;
+    border-color: rgba(96, 50, 168, 0.43);
+    background: rgba(139, 92, 246, 0.13);
+    text-shadow: none;
+  }
+
+  :root:not(.dark) .membership-review-card--vip-3 .membership-review-report:hover {
+    color: #9635ac !important;
+    border-color: rgba(150, 53, 172, 0.4);
+    background: rgba(192, 92, 246, 0.12);
+    text-shadow: none;
+  }
+
+  :root:not(.dark) .membership-review-card .membership-review-report[data-active="true"] {
+    color: #dc2626 !important;
+  }
+
+  @keyframes vip-2-text-shimmer {
+    to {
+      background-position: 220% center;
+    }
+  }
+
+  @keyframes vip-3-review-glow {
+    0%,
+    100% {
+      background-position: 0% 50%;
+      box-shadow:
+        0 0 0 1px rgba(96, 212, 245, 0.2),
+        0 12px 38px rgba(96, 212, 245, 0.2),
+        0 0 28px rgba(139, 92, 246, 0.12);
+    }
+
+    50% {
+      background-position: 100% 50%;
+      box-shadow:
+        0 0 0 1px rgba(190, 239, 255, 0.32),
+        0 15px 46px rgba(96, 212, 245, 0.3),
+        0 0 36px rgba(139, 92, 246, 0.22);
+    }
+  }
+
+  @keyframes vip-3-border-flow {
+    to {
+      background-position: 300% 50%;
+    }
+  }
+
+  @keyframes vip-3-aurora {
+    from {
+      opacity: 0.58;
+      transform: scale(0.98) translate3d(-1%, -1%, 0);
+    }
+
+    to {
+      opacity: 0.94;
+      transform: scale(1.02) translate3d(1%, 1%, 0);
+    }
+  }
+
+  @keyframes vip-3-text-shimmer {
+    to {
+      background-position: 260% center;
+    }
+  }
+
+  @keyframes vip-3-badge-shimmer {
+    to {
+      background-position: 220% center;
+    }
+  }
+
+  @keyframes vip-3-avatar-pulse {
+    0%,
+    100% {
+      box-shadow:
+        0 0 12px rgba(96, 212, 245, 0.44),
+        0 0 22px rgba(139, 92, 246, 0.16);
+    }
+
+    50% {
+      box-shadow:
+        0 0 22px rgba(96, 212, 245, 0.72),
+        0 0 34px rgba(139, 92, 246, 0.34);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .membership-review-card--vip-2 .membership-review-author,
+    .membership-review-card--vip-3,
+    .membership-review-card--vip-3::before,
+    .membership-review-card--vip-3::after,
+    .membership-review-card--vip-3 .membership-review-author,
+    .membership-review-card--vip-3 .membership-review-avatar,
+    .membership-review-card--vip-3 .membership-review-badge {
+      animation: none;
+    }
+  }
+
+  /* ============================================================
+     MEMBERSHIP IDENTITY, CENTER, AND DIGITAL TICKETS
+  ============================================================ */
+  .membership-tier--vip-0 {
+    --vip-accent: #6b7280;
+    --vip-accent-rgb: 107, 114, 128;
+    --vip-secondary: #9ca3af;
+    --vip-secondary-rgb: 156, 163, 175;
+  }
+
+  .membership-tier--vip-1 {
+    --vip-accent: #929bc7;
+    --vip-accent-rgb: 146, 155, 199;
+    --vip-secondary: #eef0ff;
+    --vip-secondary-rgb: 238, 240, 255;
+  }
+
+  .membership-tier--vip-2 {
+    --vip-accent: #d88c0d;
+    --vip-accent-rgb: 216, 140, 13;
+    --vip-secondary: #ffe08a;
+    --vip-secondary-rgb: 255, 224, 138;
+  }
+
+  .membership-tier--vip-3 {
+    --vip-accent: #32c8ec;
+    --vip-accent-rgb: 50, 200, 236;
+    --vip-secondary: #9f7aea;
+    --vip-secondary-rgb: 159, 122, 234;
+  }
+
+  :root:not(.dark) .membership-tier--vip-0 {
+    --vip-accent: #4b5563;
+    --vip-accent-rgb: 75, 85, 99;
+    --vip-secondary: #70798a;
+    --vip-secondary-rgb: 112, 121, 138;
+  }
+
+  :root:not(.dark) .membership-tier--vip-1 {
+    --vip-accent: #465173;
+    --vip-accent-rgb: 70, 81, 115;
+    --vip-secondary: #7b88b5;
+    --vip-secondary-rgb: 123, 136, 181;
+  }
+
+  :root:not(.dark) .membership-tier--vip-2 {
+    --vip-accent: #9b5d00;
+    --vip-accent-rgb: 155, 93, 0;
+    --vip-secondary: #d48a0a;
+    --vip-secondary-rgb: 212, 138, 10;
+  }
+
+  :root:not(.dark) .membership-tier--vip-3 {
+    --vip-accent: #007c9d;
+    --vip-accent-rgb: 0, 124, 157;
+    --vip-secondary: #6e35c5;
+    --vip-secondary-rgb: 110, 53, 197;
+  }
+
+  .membership-tier-value {
+    color: var(--vip-accent) !important;
+    text-shadow: 0 0 10px rgba(var(--vip-accent-rgb), 0.08);
+  }
+
+  .dark .membership-tier-value {
+    color: var(--vip-secondary) !important;
+    text-shadow: 0 0 12px rgba(var(--vip-accent-rgb), 0.24);
+  }
+
+  .membership-profile-page :is(
+    .membership-profile-heading,
+    .membership-profile-identity-panel,
+    .membership-profile-nav-panel,
+    .membership-profile-content-panel
+  ) {
+    transition:
+      border-color 300ms ease,
+      background-color 300ms ease,
+      box-shadow 300ms ease;
+  }
+
+  /* VIP 2 extends the gold identity across the complete profile experience. */
+  .membership-profile-page--vip-2 {
+    background-color: #fffaf0 !important;
+    background-image:
+      radial-gradient(circle at 12% 10%, rgba(216, 140, 13, 0.09), transparent 28%),
+      radial-gradient(circle at 88% 68%, rgba(255, 224, 138, 0.12), transparent 32%);
+  }
+
+  .dark .membership-profile-page--vip-2 {
+    background-color: #090704 !important;
+    background-image:
+      radial-gradient(circle at 12% 10%, rgba(216, 140, 13, 0.12), transparent 30%),
+      radial-gradient(circle at 88% 68%, rgba(255, 224, 138, 0.07), transparent 34%);
+  }
+
+  .membership-profile-page--vip-2 .membership-profile-heading {
+    border-color: rgba(155, 93, 0, 0.22) !important;
+  }
+
+  .membership-profile-page--vip-2 .membership-profile-page-title {
+    background: linear-gradient(90deg, #704200, #b36d00, #d48a0a);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+  }
+
+  .dark .membership-profile-page--vip-2 .membership-profile-page-title {
+    background: linear-gradient(90deg, #ffe3a0, #f5a623, #fff1c7);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  .membership-profile-page--vip-2 :is(
+    .membership-profile-identity-panel,
+    .membership-profile-nav-panel,
+    .membership-profile-content-panel
+  ) {
+    border-color: rgba(155, 93, 0, 0.28) !important;
+    background-color: rgba(255, 253, 248, 0.94) !important;
+    background-image:
+      linear-gradient(135deg, rgba(245, 166, 35, 0.055), transparent 42%);
+    box-shadow:
+      0 12px 32px rgba(119, 72, 0, 0.08),
+      0 0 18px rgba(216, 140, 13, 0.055) !important;
+  }
+
+  .dark .membership-profile-page--vip-2 :is(
+    .membership-profile-identity-panel,
+    .membership-profile-nav-panel,
+    .membership-profile-content-panel
+  ) {
+    border-color: rgba(245, 166, 35, 0.28) !important;
+    background-color: rgba(15, 12, 7, 0.95) !important;
+    background-image:
+      linear-gradient(135deg, rgba(245, 166, 35, 0.075), transparent 46%);
+    box-shadow:
+      0 16px 38px rgba(0, 0, 0, 0.34),
+      0 0 20px rgba(216, 140, 13, 0.07) !important;
+  }
+
+  .membership-profile-page--vip-2 .membership-profile-nav-item.is-active {
+    color: #875100 !important;
+    border-color: rgba(180, 108, 0, 0.34) !important;
+    background: linear-gradient(
+      110deg,
+      rgba(245, 166, 35, 0.2),
+      rgba(255, 224, 138, 0.12)
+    ) !important;
+    box-shadow: 0 5px 14px rgba(155, 93, 0, 0.08);
+  }
+
+  .membership-profile-page--vip-2 .membership-profile-nav-item.is-active > .material-symbols-outlined {
+    color: #9b5d00 !important;
+    text-shadow: 0 0 9px rgba(216, 140, 13, 0.22);
+  }
+
+  .dark .membership-profile-page--vip-2 .membership-profile-nav-item.is-active,
+  .dark .membership-profile-page--vip-2 .membership-profile-nav-item.is-active > .material-symbols-outlined {
+    color: #ffd978 !important;
+  }
+
+  .membership-profile-page--vip-2 :is(
+    .membership-profile-home-button,
+    .membership-profile-edit-button
+  ) {
+    color: #925700 !important;
+    border-color: rgba(180, 108, 0, 0.34) !important;
+    background: rgba(245, 166, 35, 0.07) !important;
+  }
+
+  .membership-profile-page--vip-2 :is(
+    .membership-profile-home-button,
+    .membership-profile-edit-button
+  ):hover {
+    color: #ffffff !important;
+    border-color: transparent !important;
+    background: linear-gradient(110deg, #b76e00, #eaa21f) !important;
+    box-shadow: 0 8px 20px rgba(155, 93, 0, 0.2) !important;
+  }
+
+  .membership-profile-page--vip-2 .membership-profile-section-icon {
+    color: #9b5d00 !important;
+    background: rgba(245, 166, 35, 0.16) !important;
+    box-shadow: 0 0 14px rgba(216, 140, 13, 0.1);
+  }
+
+  .membership-profile-page--vip-2 .membership-profile-section-icon .material-symbols-outlined {
+    color: #9b5d00 !important;
+  }
+
+  .membership-profile-page--vip-2 :is(
+    .membership-profile-content-header,
+    .membership-profile-field
+  ) {
+    border-color: rgba(155, 93, 0, 0.18) !important;
+  }
+
+  .membership-profile-page--vip-2 .membership-profile-field-label {
+    color: #80551a !important;
+  }
+
+  /* VIP 3 receives the full animated cyan-purple aurora treatment. */
+  .membership-profile-page--vip-3 {
+    background-color: #f5fbfd !important;
+    background-image:
+      radial-gradient(circle at 8% 12%, rgba(50, 200, 236, 0.15), transparent 28%),
+      radial-gradient(circle at 92% 18%, rgba(159, 122, 234, 0.13), transparent 30%),
+      radial-gradient(circle at 74% 88%, rgba(50, 200, 236, 0.09), transparent 34%);
+    background-size: 135% 135%;
+    animation: membership-profile-page-aurora 8s ease-in-out infinite alternate;
+  }
+
+  .dark .membership-profile-page--vip-3 {
+    background-color: #03070a !important;
+    background-image:
+      radial-gradient(circle at 8% 12%, rgba(50, 200, 236, 0.14), transparent 30%),
+      radial-gradient(circle at 92% 18%, rgba(159, 122, 234, 0.14), transparent 32%),
+      radial-gradient(circle at 74% 88%, rgba(50, 200, 236, 0.08), transparent 36%);
+  }
+
+  .membership-profile-page--vip-3 .membership-profile-heading {
+    border-color: rgba(8, 113, 141, 0.24) !important;
+  }
+
+  .membership-profile-page--vip-3 .membership-profile-page-title {
+    background: linear-gradient(90deg, #075f77, #087f9e, #6540ad, #075f77);
+    background-size: 230% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+    animation: membership-profile-title-shimmer 4s linear infinite;
+  }
+
+  .dark .membership-profile-page--vip-3 .membership-profile-page-title {
+    background: linear-gradient(90deg, #71e4ff, #ffffff, #bda6ff, #71e4ff);
+    background-size: 230% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  .membership-profile-page--vip-3 :is(
+    .membership-profile-identity-panel,
+    .membership-profile-nav-panel,
+    .membership-profile-content-panel
+  ) {
+    border-color: rgba(8, 113, 141, 0.32) !important;
+    background-color: rgba(250, 254, 255, 0.9) !important;
+    background-image:
+      radial-gradient(circle at 6% 6%, rgba(50, 200, 236, 0.1), transparent 30%),
+      radial-gradient(circle at 94% 94%, rgba(159, 122, 234, 0.09), transparent 34%);
+    background-size: 150% 150%;
+    box-shadow:
+      0 14px 36px rgba(8, 113, 141, 0.11),
+      0 0 22px rgba(101, 64, 173, 0.07) !important;
+    animation: membership-profile-panel-aurora 6s ease-in-out infinite alternate;
+  }
+
+  .dark .membership-profile-page--vip-3 :is(
+    .membership-profile-identity-panel,
+    .membership-profile-nav-panel,
+    .membership-profile-content-panel
+  ) {
+    border-color: rgba(50, 200, 236, 0.28) !important;
+    background-color: rgba(7, 12, 16, 0.92) !important;
+    background-image:
+      radial-gradient(circle at 6% 6%, rgba(50, 200, 236, 0.1), transparent 32%),
+      radial-gradient(circle at 94% 94%, rgba(159, 122, 234, 0.1), transparent 36%);
+    box-shadow:
+      0 18px 42px rgba(0, 0, 0, 0.42),
+      0 0 24px rgba(50, 200, 236, 0.08),
+      0 0 30px rgba(159, 122, 234, 0.06) !important;
+  }
+
+  .membership-profile-page--vip-3 .membership-profile-nav-item.is-active {
+    color: #075f77 !important;
+    border-color: rgba(8, 113, 141, 0.38) !important;
+    background: linear-gradient(
+      110deg,
+      rgba(50, 200, 236, 0.18),
+      rgba(159, 122, 234, 0.13)
+    ) !important;
+    box-shadow:
+      0 5px 16px rgba(8, 113, 141, 0.11),
+      0 0 16px rgba(101, 64, 173, 0.06);
+  }
+
+  .membership-profile-page--vip-3 .membership-profile-nav-item.is-active > .material-symbols-outlined {
+    color: #08718d !important;
+    text-shadow: 0 0 9px rgba(50, 200, 236, 0.3);
+  }
+
+  .dark .membership-profile-page--vip-3 .membership-profile-nav-item.is-active,
+  .dark .membership-profile-page--vip-3 .membership-profile-nav-item.is-active > .material-symbols-outlined {
+    color: #8ceaff !important;
+  }
+
+  .membership-profile-page--vip-3 :is(
+    .membership-profile-home-button,
+    .membership-profile-edit-button
+  ) {
+    color: #075f77 !important;
+    border-color: rgba(8, 113, 141, 0.36) !important;
+    background: linear-gradient(
+      110deg,
+      rgba(50, 200, 236, 0.09),
+      rgba(159, 122, 234, 0.07)
+    ) !important;
+  }
+
+  .membership-profile-page--vip-3 :is(
+    .membership-profile-home-button,
+    .membership-profile-edit-button
+  ):hover {
+    color: #ffffff !important;
+    border-color: transparent !important;
+    background: linear-gradient(110deg, #087d9b, #6540ad) !important;
+    box-shadow:
+      0 8px 22px rgba(8, 113, 141, 0.24),
+      0 0 18px rgba(101, 64, 173, 0.14) !important;
+  }
+
+  .membership-profile-page--vip-3 .membership-profile-section-icon {
+    color: #08718d !important;
+    background: linear-gradient(
+      135deg,
+      rgba(50, 200, 236, 0.17),
+      rgba(159, 122, 234, 0.13)
+    ) !important;
+    box-shadow:
+      0 0 14px rgba(50, 200, 236, 0.16),
+      0 0 20px rgba(159, 122, 234, 0.08);
+  }
+
+  .membership-profile-page--vip-3 .membership-profile-section-icon .material-symbols-outlined {
+    color: #08718d !important;
+  }
+
+  .membership-profile-page--vip-3 :is(
+    .membership-profile-content-header,
+    .membership-profile-field
+  ) {
+    border-color: rgba(8, 113, 141, 0.2) !important;
+  }
+
+  .membership-profile-page--vip-3 .membership-profile-field-label {
+    color: #315f70 !important;
+  }
+
+  .membership-tier-chip {
+    color: var(--vip-accent);
+    border-color: rgba(var(--vip-accent-rgb), 0.4);
+    background: rgba(var(--vip-accent-rgb), 0.1);
+    box-shadow: 0 0 12px rgba(var(--vip-accent-rgb), 0.1);
+  }
+
+  .dark .membership-tier-chip {
+    color: var(--vip-secondary);
+    border-color: rgba(var(--vip-secondary-rgb), 0.38);
+    background: rgba(var(--vip-accent-rgb), 0.14);
+  }
+
+  .membership-header-avatar {
+    isolation: isolate;
+  }
+
+  .membership-header-avatar::before {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    z-index: 0;
+    border-radius: 999px;
+    background: linear-gradient(
+      135deg,
+      var(--vip-accent),
+      var(--vip-secondary),
+      var(--vip-accent)
+    );
+    box-shadow:
+      0 0 0 1px rgba(var(--vip-accent-rgb), 0.28),
+      0 0 16px rgba(var(--vip-accent-rgb), 0.28);
+  }
+
+  .membership-header-avatar > img,
+  .membership-header-avatar > span:not(.membership-header-tier-label) {
+    position: relative;
+    z-index: 1;
+    border: 2px solid rgba(255, 255, 255, 0.88);
+  }
+
+  .dark .membership-header-avatar > img,
+  .dark .membership-header-avatar > span:not(.membership-header-tier-label) {
+    border-color: rgba(9, 9, 11, 0.92);
+  }
+
+  .membership-header-tier-label {
+    z-index: 2;
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.68);
+    background: linear-gradient(
+      110deg,
+      var(--vip-accent),
+      var(--vip-secondary)
+    );
+    box-shadow: 0 3px 10px rgba(var(--vip-accent-rgb), 0.34);
+  }
+
+  .membership-header-avatar.membership-tier--vip-3::before {
+    background-size: 220% 220%;
+    animation: membership-avatar-spectrum 3s linear infinite;
+  }
+
+  .membership-profile-menu {
+    border-color: rgba(var(--vip-accent-rgb), 0.3) !important;
+    box-shadow:
+      0 22px 52px rgba(15, 23, 42, 0.16),
+      0 0 22px rgba(var(--vip-accent-rgb), 0.12) !important;
+  }
+
+  .dark .membership-profile-menu {
+    box-shadow:
+      0 24px 55px rgba(0, 0, 0, 0.7),
+      0 0 24px rgba(var(--vip-accent-rgb), 0.16) !important;
+  }
+
+  .membership-profile-avatar-frame {
+    border-color: rgba(var(--vip-accent-rgb), 0.74) !important;
+    box-shadow:
+      0 0 0 3px rgba(var(--vip-accent-rgb), 0.08),
+      0 0 22px rgba(var(--vip-accent-rgb), 0.26);
+  }
+
+  .membership-profile-avatar-frame.membership-tier--vip-2 {
+    box-shadow:
+      0 0 0 3px rgba(255, 224, 138, 0.13),
+      0 0 26px rgba(216, 140, 13, 0.36);
+  }
+
+  .membership-profile-avatar-frame.membership-tier--vip-3 {
+    border-color: rgba(104, 222, 250, 0.9) !important;
+    box-shadow:
+      0 0 0 3px rgba(159, 122, 234, 0.16),
+      0 0 20px rgba(50, 200, 236, 0.48),
+      0 0 32px rgba(159, 122, 234, 0.24);
+    animation: membership-profile-avatar-pulse 3s ease-in-out infinite;
+  }
+
+  .membership-profile-summary {
+    position: relative;
+    overflow: hidden;
+    border-color: rgba(var(--vip-accent-rgb), 0.32) !important;
+    background-image:
+      radial-gradient(circle at 0% 0%, rgba(var(--vip-accent-rgb), 0.11), transparent 35%),
+      radial-gradient(circle at 100% 100%, rgba(var(--vip-secondary-rgb), 0.08), transparent 38%);
+  }
+
+  .membership-profile-summary::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      115deg,
+      transparent 35%,
+      rgba(255, 255, 255, 0.16) 48%,
+      transparent 61%
+    );
+    transform: translateX(-120%);
+  }
+
+  .membership-profile-summary.membership-tier--vip-2::after,
+  .membership-profile-summary.membership-tier--vip-3::after {
+    animation: membership-summary-sheen 5s ease-in-out infinite;
+  }
+
+  .membership-profile-summary > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .membership-summary-stat {
+    position: relative;
+    overflow: hidden;
+    transition:
+      border-color 250ms ease,
+      background-color 250ms ease,
+      box-shadow 250ms ease,
+      transform 250ms ease;
+  }
+
+  .membership-summary-stat > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .membership-summary-stat::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      115deg,
+      transparent 28%,
+      rgba(255, 255, 255, 0.5) 48%,
+      transparent 68%
+    );
+    transform: translateX(-130%);
+  }
+
+  .membership-profile-summary.membership-tier--vip-1 .membership-summary-stat {
+    border-color: rgba(70, 81, 115, 0.46) !important;
+    background:
+      radial-gradient(circle at 8% 8%, rgba(158, 170, 214, 0.34), transparent 46%),
+      linear-gradient(135deg, rgba(123, 136, 181, 0.28), rgba(235, 238, 249, 0.88)) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.92),
+      0 9px 20px rgba(51, 61, 94, 0.13),
+      0 0 18px rgba(94, 108, 157, 0.08);
+  }
+
+  .membership-profile-summary.membership-tier--vip-1 .membership-summary-stat-label {
+    color: #485475 !important;
+  }
+
+  .membership-profile-summary.membership-tier--vip-1 .membership-summary-stat-value {
+    color: #27314f !important;
+  }
+
+  .dark .membership-profile-summary.membership-tier--vip-1 .membership-summary-stat {
+    border-color: rgba(238, 240, 255, 0.38) !important;
+    background:
+      radial-gradient(circle at 8% 8%, rgba(190, 198, 238, 0.23), transparent 46%),
+      linear-gradient(135deg, rgba(146, 155, 199, 0.28), rgba(17, 19, 29, 0.94)) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      0 9px 22px rgba(0, 0, 0, 0.34),
+      0 0 18px rgba(146, 155, 199, 0.13);
+  }
+
+  .dark .membership-profile-summary.membership-tier--vip-1 .membership-summary-stat-label {
+    color: #c7ccec !important;
+  }
+
+  .dark .membership-profile-summary.membership-tier--vip-1 .membership-summary-stat-value {
+    color: #ffffff !important;
+    text-shadow: 0 0 14px rgba(190, 198, 238, 0.2);
+  }
+
+  .membership-profile-summary.membership-tier--vip-2 .membership-summary-stat {
+    border-color: rgba(155, 93, 0, 0.36) !important;
+    background:
+      linear-gradient(135deg, rgba(245, 166, 35, 0.24), rgba(255, 242, 207, 0.76)) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.82),
+      0 8px 18px rgba(155, 93, 0, 0.11),
+      0 0 16px rgba(212, 138, 10, 0.06);
+  }
+
+  .membership-profile-summary.membership-tier--vip-2 .membership-summary-stat::after {
+    animation: membership-stat-sheen 6s ease-in-out infinite;
+  }
+
+  .membership-profile-summary.membership-tier--vip-2 .membership-summary-stat-label {
+    color: #80510c !important;
+  }
+
+  .membership-profile-summary.membership-tier--vip-2 .membership-summary-stat-value {
+    color: #674000 !important;
+  }
+
+  .dark .membership-profile-summary.membership-tier--vip-2 .membership-summary-stat {
+    border-color: rgba(245, 166, 35, 0.25) !important;
+    background:
+      linear-gradient(135deg, rgba(245, 166, 35, 0.16), rgba(21, 16, 8, 0.92)) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 224, 138, 0.05),
+      0 8px 20px rgba(0, 0, 0, 0.24),
+      0 0 16px rgba(216, 140, 13, 0.055);
+  }
+
+  .dark .membership-profile-summary.membership-tier--vip-2 .membership-summary-stat-label {
+    color: #d0ae69 !important;
+  }
+
+  .dark .membership-profile-summary.membership-tier--vip-2 .membership-summary-stat-value {
+    color: #fff2cd !important;
+  }
+
+  .membership-profile-summary.membership-tier--vip-3 .membership-summary-stat {
+    border-color: rgba(0, 124, 157, 0.56) !important;
+    background:
+      radial-gradient(circle at 8% 8%, rgba(35, 200, 237, 0.34), transparent 45%),
+      radial-gradient(circle at 92% 88%, rgba(140, 91, 226, 0.3), transparent 48%),
+      linear-gradient(135deg, rgba(50, 200, 236, 0.19), rgba(159, 122, 234, 0.26)) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.92),
+      0 11px 24px rgba(0, 102, 132, 0.18),
+      0 0 22px rgba(110, 53, 197, 0.13);
+  }
+
+  .membership-profile-summary.membership-tier--vip-3 .membership-summary-stat::after {
+    background: linear-gradient(
+      115deg,
+      transparent 26%,
+      rgba(255, 255, 255, 0.66) 48%,
+      transparent 70%
+    );
+    animation: membership-stat-sheen 4.4s ease-in-out infinite;
+  }
+
+  .membership-profile-summary.membership-tier--vip-3 .membership-summary-stat-label {
+    color: #075f78 !important;
+  }
+
+  .membership-profile-summary.membership-tier--vip-3 .membership-summary-stat-value {
+    color: #07394d !important;
+  }
+
+  .dark .membership-profile-summary.membership-tier--vip-3 .membership-summary-stat {
+    border-color: rgba(50, 200, 236, 0.24) !important;
+    background:
+      radial-gradient(circle at 8% 8%, rgba(50, 200, 236, 0.11), transparent 45%),
+      linear-gradient(135deg, rgba(50, 200, 236, 0.08), rgba(159, 122, 234, 0.1)) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.035),
+      0 8px 22px rgba(0, 0, 0, 0.28),
+      0 0 17px rgba(50, 200, 236, 0.055),
+      0 0 22px rgba(159, 122, 234, 0.04);
+  }
+
+  .dark .membership-profile-summary.membership-tier--vip-3 .membership-summary-stat-label {
+    color: #87bccc !important;
+  }
+
+  .dark .membership-profile-summary.membership-tier--vip-3 .membership-summary-stat-value {
+    color: #f2fbff !important;
+  }
+
+  :root:not(.dark) .membership-profile-summary.membership-tier--vip-1 {
+    border-color: rgba(70, 81, 115, 0.62) !important;
+    background-color: #f6f7fc !important;
+    background-image:
+      radial-gradient(circle at 5% 0%, rgba(123, 136, 181, 0.38), transparent 36%),
+      radial-gradient(circle at 96% 100%, rgba(173, 181, 215, 0.26), transparent 42%),
+      linear-gradient(130deg, rgba(216, 221, 241, 0.66), rgba(255, 255, 255, 0.94)) !important;
+    box-shadow:
+      0 16px 38px rgba(51, 61, 94, 0.16),
+      0 0 24px rgba(94, 108, 157, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
+  }
+
+  :root:not(.dark) .membership-profile-summary.membership-tier--vip-2 {
+    border-color: rgba(155, 93, 0, 0.5) !important;
+    background-image:
+      radial-gradient(circle at 5% 0%, rgba(245, 166, 35, 0.24), transparent 36%),
+      radial-gradient(circle at 96% 100%, rgba(255, 224, 138, 0.2), transparent 40%),
+      linear-gradient(130deg, rgba(255, 245, 218, 0.7), rgba(255, 255, 255, 0.94)) !important;
+    box-shadow:
+      0 15px 36px rgba(155, 93, 0, 0.14),
+      0 0 22px rgba(212, 138, 10, 0.09) !important;
+  }
+
+  :root:not(.dark) .membership-profile-summary.membership-tier--vip-3 {
+    border-color: rgba(0, 124, 157, 0.76) !important;
+    background-color: #f0fbff !important;
+    background-image:
+      radial-gradient(circle at 5% 0%, rgba(35, 200, 237, 0.42), transparent 38%),
+      radial-gradient(circle at 96% 100%, rgba(140, 91, 226, 0.38), transparent 44%),
+      linear-gradient(130deg, rgba(210, 247, 255, 0.94), rgba(239, 225, 255, 0.94)) !important;
+    background-size: 165% 165%;
+    box-shadow:
+      0 19px 46px rgba(0, 103, 134, 0.22),
+      0 0 30px rgba(35, 200, 237, 0.17),
+      0 0 38px rgba(110, 53, 197, 0.14),
+      inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
+    animation: membership-light-vip3-summary-aurora 4.2s ease-in-out infinite alternate;
+  }
+
+  :root:not(.dark) .membership-profile-page--vip-2 {
+    background-image:
+      radial-gradient(circle at 10% 10%, rgba(216, 140, 13, 0.15), transparent 30%),
+      radial-gradient(circle at 90% 70%, rgba(255, 224, 138, 0.2), transparent 34%);
+  }
+
+  :root:not(.dark) .membership-profile-page--vip-2 :is(
+    .membership-profile-identity-panel,
+    .membership-profile-nav-panel,
+    .membership-profile-content-panel
+  ) {
+    border-color: rgba(155, 93, 0, 0.36) !important;
+    background-color: rgba(255, 253, 247, 0.96) !important;
+    background-image:
+      radial-gradient(circle at 0% 0%, rgba(245, 166, 35, 0.13), transparent 34%),
+      linear-gradient(135deg, rgba(255, 224, 138, 0.09), transparent 50%);
+    box-shadow:
+      0 14px 34px rgba(119, 72, 0, 0.11),
+      0 0 20px rgba(216, 140, 13, 0.075) !important;
+  }
+
+  :root:not(.dark) .membership-profile-page--vip-3 {
+    background-color: #edfaff !important;
+    background-image:
+      radial-gradient(circle at 8% 12%, rgba(35, 200, 237, 0.36), transparent 31%),
+      radial-gradient(circle at 92% 18%, rgba(140, 91, 226, 0.32), transparent 34%),
+      radial-gradient(circle at 74% 88%, rgba(35, 200, 237, 0.24), transparent 38%),
+      linear-gradient(135deg, rgba(231, 251, 255, 0.88), rgba(247, 237, 255, 0.84));
+    animation: membership-light-vip3-page-aurora 6s ease-in-out infinite alternate;
+  }
+
+  :root:not(.dark) .membership-profile-page--vip-3 :is(
+    .membership-profile-identity-panel,
+    .membership-profile-nav-panel,
+    .membership-profile-content-panel
+  ) {
+    border-color: rgba(0, 124, 157, 0.62) !important;
+    background-color: rgba(244, 252, 255, 0.95) !important;
+    background-image:
+      radial-gradient(circle at 4% 4%, rgba(35, 200, 237, 0.27), transparent 35%),
+      radial-gradient(circle at 96% 96%, rgba(140, 91, 226, 0.24), transparent 40%),
+      linear-gradient(135deg, rgba(226, 249, 255, 0.52), rgba(244, 233, 255, 0.5));
+    box-shadow:
+      0 19px 44px rgba(0, 103, 134, 0.2),
+      0 0 28px rgba(35, 200, 237, 0.14),
+      0 0 36px rgba(110, 53, 197, 0.11),
+      inset 0 1px 0 rgba(255, 255, 255, 0.96) !important;
+    animation: membership-light-vip3-panel-aurora 4.8s ease-in-out infinite alternate;
+  }
+
+  .membership-profile-progress-track {
+    border: 1px solid rgba(var(--vip-accent-rgb), 0.14);
+    background: rgba(var(--vip-accent-rgb), 0.1) !important;
+    box-shadow: inset 0 1px 3px rgba(15, 23, 42, 0.08);
+  }
+
+  .membership-profile-progress-fill {
+    background: linear-gradient(90deg, var(--vip-accent), var(--vip-secondary));
+    box-shadow: 0 0 12px rgba(var(--vip-accent-rgb), 0.4);
+  }
+
+  .dark .membership-profile-progress-track {
+    border-color: rgba(var(--vip-secondary-rgb), 0.14);
+    background: rgba(var(--vip-accent-rgb), 0.09) !important;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.34);
+  }
+
+  :root:not(.dark) .membership-profile-page--vip-1 .membership-profile-identity-panel {
+    position: relative;
+    isolation: isolate;
+    border-color: rgba(70, 81, 115, 0.62) !important;
+    background-color: #f5f6fc !important;
+    background-image:
+      radial-gradient(circle at 18% 10%, rgba(123, 136, 181, 0.4), transparent 40%),
+      radial-gradient(circle at 84% 88%, rgba(173, 181, 215, 0.25), transparent 44%),
+      linear-gradient(145deg, rgba(211, 217, 240, 0.72), rgba(255, 255, 255, 0.96)) !important;
+    box-shadow:
+      0 17px 40px rgba(51, 61, 94, 0.17),
+      0 0 26px rgba(94, 108, 157, 0.13),
+      inset 0 1px 0 rgba(255, 255, 255, 0.96) !important;
+  }
+
+  :root:not(.dark) .membership-profile-page--vip-1 .membership-profile-identity-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      115deg,
+      transparent 27%,
+      rgba(70, 81, 115, 0.12) 42%,
+      rgba(255, 255, 255, 0.94) 50%,
+      rgba(70, 81, 115, 0.1) 58%,
+      transparent 73%
+    );
+    transform: translateX(-130%);
+    animation: membership-identity-sheen 6.2s ease-in-out infinite;
+  }
+
+  :root:not(.dark) .membership-profile-page--vip-1 .membership-profile-identity-panel > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  :root:not(.dark) .membership-profile-page--vip-1 .membership-profile-user-name {
+    color: #27314f !important;
+    text-shadow:
+      0 2px 12px rgba(70, 81, 115, 0.22),
+      0 0 18px rgba(123, 136, 181, 0.13);
+  }
+
+  :root:not(.dark) .membership-profile-page--vip-1 .membership-profile-summary::after {
+    background: linear-gradient(
+      115deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.82) 49%,
+      transparent 68%
+    );
+    animation: membership-summary-sheen 6.2s ease-in-out infinite;
+  }
+
+  :root:not(.dark) .membership-profile-page--vip-1 .membership-profile-progress-fill {
+    background: linear-gradient(90deg, #555d78, #9aa1ba);
+    box-shadow:
+      0 0 10px rgba(85, 93, 120, 0.38),
+      0 0 16px rgba(133, 141, 168, 0.14);
+  }
+
+  .dark .membership-profile-page--vip-1 .membership-profile-identity-panel,
+  .dark .membership-profile-summary.membership-tier--vip-1 {
+    position: relative;
+    isolation: isolate;
+    border-color: rgba(238, 240, 255, 0.46) !important;
+    background-color: #0d0f17 !important;
+    background-image:
+      radial-gradient(circle at 12% 6%, rgba(146, 155, 199, 0.28), transparent 40%),
+      radial-gradient(circle at 90% 92%, rgba(213, 218, 248, 0.14), transparent 44%),
+      linear-gradient(145deg, rgba(31, 35, 52, 0.94), rgba(8, 9, 14, 0.98)) !important;
+    box-shadow:
+      0 17px 42px rgba(0, 0, 0, 0.48),
+      0 0 24px rgba(146, 155, 199, 0.18),
+      0 0 36px rgba(213, 218, 248, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+  }
+
+  .dark .membership-profile-page--vip-1 .membership-profile-identity-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      115deg,
+      transparent 27%,
+      rgba(146, 155, 199, 0.08) 42%,
+      rgba(238, 240, 255, 0.26) 50%,
+      rgba(146, 155, 199, 0.07) 58%,
+      transparent 73%
+    );
+    transform: translateX(-130%);
+    animation: membership-identity-sheen 6.8s ease-in-out infinite;
+  }
+
+  .dark .membership-profile-page--vip-1 .membership-profile-identity-panel > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .dark .membership-profile-summary.membership-tier--vip-1::after {
+    background: linear-gradient(
+      115deg,
+      transparent 29%,
+      rgba(146, 155, 199, 0.08) 42%,
+      rgba(238, 240, 255, 0.25) 50%,
+      rgba(146, 155, 199, 0.07) 58%,
+      transparent 71%
+    );
+    animation: membership-summary-sheen 6.8s ease-in-out infinite;
+  }
+
+  .dark .membership-profile-page--vip-1 .membership-profile-avatar-frame.membership-tier--vip-1 {
+    border-color: rgba(211, 216, 244, 0.78) !important;
+    box-shadow:
+      0 0 0 3px rgba(125, 136, 181, 0.16),
+      0 0 20px rgba(168, 177, 218, 0.34),
+      0 0 30px rgba(125, 136, 181, 0.18);
+  }
+
+  .dark .membership-profile-page--vip-1 .membership-profile-user-name {
+    color: #f7f8ff !important;
+    text-shadow:
+      0 0 12px rgba(238, 240, 255, 0.24),
+      0 0 22px rgba(146, 155, 199, 0.2);
+  }
+
+  .dark .membership-profile-page--vip-1 .membership-tier-chip {
+    color: #f4f5ff;
+    border-color: rgba(238, 240, 255, 0.55);
+    background: linear-gradient(
+      115deg,
+      rgba(146, 155, 199, 0.28),
+      rgba(53, 59, 85, 0.72)
+    );
+    box-shadow:
+      0 5px 16px rgba(0, 0, 0, 0.34),
+      0 0 18px rgba(190, 198, 238, 0.18);
+  }
+
+  .dark .membership-profile-page--vip-1 .membership-profile-progress-track {
+    border-color: rgba(238, 240, 255, 0.24);
+    background: rgba(146, 155, 199, 0.14) !important;
+  }
+
+  .dark .membership-profile-page--vip-1 .membership-profile-progress-fill {
+    background: linear-gradient(90deg, #929bc7, #eef0ff);
+    box-shadow:
+      0 0 12px rgba(190, 198, 238, 0.48),
+      0 0 20px rgba(146, 155, 199, 0.22);
+  }
+
+  .dark .membership-header-avatar.membership-tier--vip-1::before {
+    background: linear-gradient(
+      135deg,
+      #65709a,
+      #aeb5d4,
+      #65709a
+    );
+    box-shadow:
+      0 0 0 1px rgba(205, 211, 239, 0.2),
+      0 0 13px rgba(168, 177, 218, 0.3),
+      0 0 20px rgba(125, 136, 181, 0.14);
+  }
+
+  .dark .membership-header-avatar.membership-tier--vip-1 .membership-header-tier-label {
+    color: #f7f8ff;
+    border-color: rgba(225, 229, 248, 0.46);
+    background: linear-gradient(110deg, #596486, #7d88ae);
+    box-shadow:
+      0 3px 8px rgba(0, 0, 0, 0.38),
+      0 0 9px rgba(146, 155, 199, 0.2);
+  }
+
+  .membership-profile-page--vip-2 .membership-profile-user-name {
+    background: linear-gradient(90deg, #8d5400, #d58b0a, #ffe08a, #9b5d00);
+    background-size: 210% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+    text-shadow:
+      0 0 12px rgba(216, 140, 13, 0.26),
+      0 2px 14px rgba(155, 93, 0, 0.12);
+    letter-spacing: 0.015em;
+  }
+
+  .dark .membership-profile-page--vip-2 .membership-profile-user-name {
+    background: linear-gradient(90deg, #f5a623, #fff0bd, #ffd36d, #f5a623);
+    background-size: 210% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  .membership-profile-page--vip-3 .membership-profile-user-name {
+    background: linear-gradient(90deg, #047692, #5e43ad, #8b45b0, #047692);
+    background-size: 230% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+    text-shadow:
+      0 0 12px rgba(50, 200, 236, 0.3),
+      0 0 20px rgba(101, 64, 173, 0.16);
+    letter-spacing: 0.02em;
+    animation: membership-profile-name-shimmer 3.8s linear infinite;
+  }
+
+  .dark .membership-profile-page--vip-3 .membership-profile-user-name {
+    background: linear-gradient(90deg, #62ddfa, #ffffff, #bda6ff, #62ddfa);
+    background-size: 230% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  :root:not(.dark) .membership-profile-page--vip-2 .membership-profile-identity-panel,
+  :root:not(.dark) .membership-profile-page--vip-3 .membership-profile-identity-panel {
+    box-shadow:
+      0 16px 38px rgba(var(--vip-accent-rgb), 0.17),
+      0 0 25px rgba(var(--vip-secondary-rgb), 0.11) !important;
+  }
+
+  :root:not(.dark) .membership-profile-page--vip-1 .membership-profile-avatar-frame.membership-tier--vip-1 {
+    border-color: rgba(70, 81, 115, 0.94) !important;
+    box-shadow:
+      0 0 0 4px rgba(123, 136, 181, 0.2),
+      0 0 24px rgba(70, 81, 115, 0.38),
+      0 0 34px rgba(123, 136, 181, 0.18);
+  }
+
+  :root:not(.dark) .membership-profile-page--vip-3 .membership-profile-avatar-frame.membership-tier--vip-3 {
+    border-color: rgba(0, 163, 205, 0.98) !important;
+    box-shadow:
+      0 0 0 4px rgba(110, 53, 197, 0.22),
+      0 0 28px rgba(35, 200, 237, 0.58),
+      0 0 42px rgba(110, 53, 197, 0.3);
+    animation: membership-light-vip3-avatar-pulse 3.2s ease-in-out infinite;
+  }
+
+  :root:not(.dark) .membership-profile-page--vip-1 .membership-tier-chip {
+    color: #354163;
+    border-color: rgba(70, 81, 115, 0.62);
+    background: linear-gradient(115deg, rgba(123, 136, 181, 0.23), rgba(231, 234, 247, 0.86));
+  }
+
+  :root:not(.dark) .membership-profile-page--vip-3 .membership-tier-chip {
+    color: #075f78;
+    border-color: rgba(0, 124, 157, 0.72);
+    background: linear-gradient(115deg, rgba(35, 200, 237, 0.25), rgba(140, 91, 226, 0.22));
+    box-shadow:
+      0 5px 16px rgba(0, 124, 157, 0.2),
+      0 0 20px rgba(110, 53, 197, 0.14);
+  }
+
+  :root:not(.dark) .membership-header-avatar.membership-tier--vip-1::before {
+    box-shadow:
+      0 0 0 2px rgba(70, 81, 115, 0.34),
+      0 0 20px rgba(70, 81, 115, 0.38);
+  }
+
+  :root:not(.dark) .membership-header-avatar.membership-tier--vip-3::before {
+    box-shadow:
+      0 0 0 2px rgba(0, 124, 157, 0.4),
+      0 0 22px rgba(35, 200, 237, 0.54),
+      0 0 30px rgba(110, 53, 197, 0.28);
+  }
+
+  :root:not(.dark) .membership-profile-page .membership-tier-chip {
+    box-shadow:
+      0 5px 14px rgba(var(--vip-accent-rgb), 0.14),
+      0 0 14px rgba(var(--vip-secondary-rgb), 0.07);
+  }
+
+
+  .membership-ticket-tier {
+    color: var(--vip-accent);
+    border-color: rgba(var(--vip-accent-rgb), 0.46);
+    background: rgba(var(--vip-accent-rgb), 0.1);
+    box-shadow: 0 0 12px rgba(var(--vip-accent-rgb), 0.16);
+  }
+
+  .membership-ticket.membership-tier--vip-1 .membership-ticket-surface {
+    outline: 1px solid rgba(129, 134, 157, 0.36);
+    filter:
+      drop-shadow(0 20px 35px rgba(0, 0, 0, 0.3))
+      drop-shadow(0 0 34px rgba(129, 134, 157, 0.34));
+  }
+
+  .membership-ticket.membership-tier--vip-2 .membership-ticket-surface {
+    outline: 1px solid rgba(216, 140, 13, 0.56);
+    filter:
+      drop-shadow(0 20px 35px rgba(0, 0, 0, 0.34))
+      drop-shadow(0 0 40px rgba(216, 140, 13, 0.48));
+  }
+
+  .membership-ticket.membership-tier--vip-3 .membership-ticket-surface {
+    outline: 1px solid rgba(50, 200, 236, 0.68);
+    filter:
+      drop-shadow(0 22px 38px rgba(0, 0, 0, 0.38))
+      drop-shadow(0 0 32px rgba(50, 200, 236, 0.52))
+      drop-shadow(0 0 48px rgba(159, 122, 234, 0.3));
+  }
+
+  .membership-ticket.membership-tier--vip-3 .membership-ticket-surface::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 30;
+    border: 2px solid transparent;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(
+      120deg,
+      rgba(50, 200, 236, 0.9),
+      rgba(255, 255, 255, 0.7),
+      rgba(159, 122, 234, 0.9),
+      rgba(50, 200, 236, 0.9)
+    ) border-box;
+    background-size: 260% 260%;
+    -webkit-mask:
+      linear-gradient(#000 0 0) padding-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: membership-ticket-border 3.4s linear infinite;
+  }
+
+  @keyframes membership-avatar-spectrum {
+    to {
+      background-position: 220% 220%;
+    }
+  }
+
+  @keyframes membership-profile-avatar-pulse {
+    0%,
+    100% {
+      box-shadow:
+        0 0 0 3px rgba(159, 122, 234, 0.16),
+        0 0 18px rgba(50, 200, 236, 0.38),
+        0 0 28px rgba(159, 122, 234, 0.2);
+    }
+
+    50% {
+      box-shadow:
+        0 0 0 3px rgba(50, 200, 236, 0.2),
+        0 0 26px rgba(50, 200, 236, 0.58),
+        0 0 38px rgba(159, 122, 234, 0.34);
+    }
+  }
+
+  @keyframes membership-summary-sheen {
+    0%,
+    62% {
+      transform: translateX(-120%);
+    }
+
+    82%,
+    100% {
+      transform: translateX(120%);
+    }
+  }
+
+  @keyframes membership-ticket-border {
+    to {
+      background-position: 260% 50%;
+    }
+  }
+
+  @keyframes membership-profile-page-aurora {
+    from {
+      background-position: 0% 20%;
+    }
+
+    to {
+      background-position: 100% 80%;
+    }
+  }
+
+  @keyframes membership-profile-panel-aurora {
+    from {
+      background-position: 0% 30%;
+    }
+
+    to {
+      background-position: 100% 70%;
+    }
+  }
+
+  @keyframes membership-profile-title-shimmer {
+    to {
+      background-position: 230% center;
+    }
+  }
+
+  @keyframes membership-stat-sheen {
+    0%,
+    58% {
+      transform: translateX(-130%);
+    }
+
+    82%,
+    100% {
+      transform: translateX(130%);
+    }
+  }
+
+  @keyframes membership-light-summary-aurora {
+    from {
+      background-position: 0% 25%;
+    }
+
+    to {
+      background-position: 100% 75%;
+    }
+  }
+
+  @keyframes membership-identity-sheen {
+    0%,
+    64% {
+      transform: translateX(-130%);
+    }
+
+    84%,
+    100% {
+      transform: translateX(130%);
+    }
+  }
+
+  @keyframes membership-profile-name-shimmer {
+    to {
+      background-position: 230% center;
+    }
+  }
+
+  @keyframes membership-light-vip3-page-aurora {
+    from {
+      background-position: 0% 20%;
+    }
+
+    to {
+      background-position: 100% 80%;
+    }
+  }
+
+  @keyframes membership-light-vip3-panel-aurora {
+    from {
+      background-position: 0% 30%;
+      filter:
+        drop-shadow(0 0 2px rgba(35, 200, 237, 0.08))
+        drop-shadow(0 0 3px rgba(110, 53, 197, 0.06));
+    }
+
+    to {
+      background-position: 100% 70%;
+      filter:
+        drop-shadow(0 0 8px rgba(35, 200, 237, 0.16))
+        drop-shadow(0 0 10px rgba(110, 53, 197, 0.1));
+    }
+  }
+
+  @keyframes membership-light-vip3-summary-aurora {
+    from {
+      background-position: 0% 25%;
+      filter:
+        drop-shadow(0 0 4px rgba(35, 200, 237, 0.1))
+        drop-shadow(0 0 5px rgba(110, 53, 197, 0.08));
+    }
+
+    to {
+      background-position: 100% 75%;
+      filter:
+        drop-shadow(0 0 11px rgba(35, 200, 237, 0.2))
+        drop-shadow(0 0 14px rgba(110, 53, 197, 0.13));
+    }
+  }
+
+  @keyframes membership-light-vip3-avatar-pulse {
+    0%,
+    100% {
+      box-shadow:
+        0 0 0 4px rgba(110, 53, 197, 0.2),
+        0 0 24px rgba(35, 200, 237, 0.48),
+        0 0 36px rgba(110, 53, 197, 0.24);
+    }
+
+    50% {
+      box-shadow:
+        0 0 0 5px rgba(35, 200, 237, 0.24),
+        0 0 34px rgba(35, 200, 237, 0.68),
+        0 0 50px rgba(110, 53, 197, 0.36);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .membership-header-avatar.membership-tier--vip-3::before,
+    .membership-profile-avatar-frame.membership-tier--vip-3,
+    .membership-profile-page--vip-1 .membership-profile-identity-panel::before,
+    .membership-profile-summary::after,
+    .membership-profile-summary.membership-tier--vip-3,
+    .membership-summary-stat::after,
+    .membership-profile-page--vip-3,
+    .membership-profile-page--vip-3 .membership-profile-page-title,
+    .membership-profile-page--vip-3 .membership-profile-user-name,
+    .membership-profile-page--vip-3 :is(
+      .membership-profile-identity-panel,
+      .membership-profile-nav-panel,
+      .membership-profile-content-panel
+    ),
+    .membership-ticket.membership-tier--vip-3 .membership-ticket-surface::before {
+      animation: none;
+    }
+  }
