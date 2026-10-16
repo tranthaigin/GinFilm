@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-labelledby="title">
+  <title id="title">GinFilm ticket background</title>
+  <defs>
+    <radialGradient id="background"><stop stop-color="#3a1624"/><stop offset="1" stop-color="#0c0c14"/></radialGradient>
+    <linearGradient id="ticket" x1="20" y1="24" x2="172" y2="168" gradientUnits="userSpaceOnUse"><stop stop-color="#ef233c"/><stop offset="1" stop-color="#b50921"/></linearGradient>
+  </defs>
+  <rect width="1024" height="1024" fill="url(#background)"/>
+  <g fill="none" stroke="#e61a27" stroke-opacity=".2" stroke-width="2">
+    <circle cx="512" cy="400" r="330"/><circle cx="512" cy="400" r="380"/>
+    <path d="M0 160h1024M0 864h1024"/>
+  </g>
+  <g transform="translate(320 192) scale(2)">
+    <path d="M40 24h112a20 20 0 0 1 20 20v36a16 16 0 0 0 0 32v36a20 20 0 0 1-20 20H40a20 20 0 0 1-20-20v-36a16 16 0 0 0 0-32V44a20 20 0 0 1 20-20Z" fill="url(#ticket)"/>
+    <path d="M123 72a36 36 0 1 0 5 44V98h-29" fill="none" stroke="#fff" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M43 44h10m86 0h10M43 148h10m86 0h10" stroke="#fff" stroke-opacity=".5" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <text x="512" y="680" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="112" letter-spacing="8"><tspan fill="#fff">GIN</tspan><tspan fill="#e61a27">FILM</tspan></text>
+  <text x="512" y="756" text-anchor="middle" fill="#d5d5dc" font-family="Arial, sans-serif" font-size="26" letter-spacing="6">TRON VEN DIEN ANH</text>
+</svg>

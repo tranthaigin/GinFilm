@@ -6,7 +6,7 @@
 
 ## 2. Bảng Màu (Color Palette)
 - **Màu Nền Chính:** `#131313` (Đen nhám)
-- **Màu Chủ Đạo:** `#e61a27` (Đỏ RapLoFilm)
+- **Màu Chủ Đạo:** `#e61a27` (Đỏ GinFilm)
 - **Màu Chữ (Chính):** `#ffffff` (Trắng)
 - **Màu Chữ (Phụ):** `#a1a1aa` (Xám nhạt)
 

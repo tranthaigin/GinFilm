@@ -8,7 +8,7 @@ yarn-error.log*
 node_modules/
 .env
 /node_modules/
-movie-frontend/node_modules/
+frontend/node_modules/
 # Uploads
 # uploads/
 # /uploads/
@@ -29,14 +29,14 @@ movie-frontend/node_modules/
 .vscode/
 .idea/
 Thumbs.db
-movie-frontend/src/assets/images/z7916786903899_daf667f2c576b976715d19ff7ba3b6b2.jpg
-movie-frontend/src/assets/images/z7943137145609_841ba62cc27beae35b9a86c02e77fd16.jpg
+frontend/src/assets/images/z7916786903899_daf667f2c576b976715d19ff7ba3b6b2.jpg
+frontend/src/assets/images/z7943137145609_841ba62cc27beae35b9a86c02e77fd16.jpg
 docs/log.md
-movie-backend/resource/application.properties
+backend/resource/application.properties
 
 dn
 test.txt
-movie-frontend/src/resolve_cinemas.cjs
+frontend/src/resolve_cinemas.cjs
 uploads/98d033ed-0fe5-4e80-a798-4b44c29e7045_1783406758107.jpg
 uploads/99c178a3-0b93-4c43-abd2-5590361903b2_1784349255847.jpg
 uploads/58720432-a2fc-4b1e-8a83-dabdc22869bd_1783239121306.png
@@ -158,15 +158,15 @@ uploads/posters/f397836e-e423-42e9-b84f-d8ecae05d50e.jpg
 uploads/posters/fcc28153-15c8-4dcd-8548-998bc5851485.jpg
 uploads/posters/fda1d943-2d67-410e-8e51-4b99847b4a8e.jpg
 uploads/posters/f22b09ed-8753-4af8-a28a-c13177f4a183.jpg
-movie-frontend/screenshot.png
-movie-frontend/screenshot_admin.png
-movie-frontend/screenshot_admin_intercept.png
-movie-frontend/screenshot_admin_fixed.png
-movie-frontend/screenshot_final.png
-movie-frontend/screenshot_admin_fixed.png
-movie-frontend/screenshot_admin_intercept.png
-movie-frontend/screenshot_admin.png
-movie-frontend/screenshot_final.png
-movie-frontend/screenshot.png
+frontend/screenshot.png
+frontend/screenshot_admin.png
+frontend/screenshot_admin_intercept.png
+frontend/screenshot_admin_fixed.png
+frontend/screenshot_final.png
+frontend/screenshot_admin_fixed.png
+frontend/screenshot_admin_intercept.png
+frontend/screenshot_admin.png
+frontend/screenshot_final.png
+frontend/screenshot.png
 update_glow.cjs
 update_mytickets.cjs

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>GinFilm</title>
+  <rect width="64" height="64" rx="15" fill="#e61a27"/>
+  <path d="M42 22a15 15 0 1 0 2 21V33H32" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

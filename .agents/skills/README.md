@@ -1,6 +1,6 @@
 # 🧰 Danh Mục Kỹ Năng (Skills) Của Trợ Lý Trí Tuệ Nhân Tạo
 
-*(Tài liệu này liệt kê các kỹ năng (skills) thực tế đã được cấu hình cho AI Agent để tương tác với dự án **movie-frontend** (React, Vite, TailwindCSS, Zustand))*
+*(Tài liệu này liệt kê các kỹ năng (skills) thực tế đã được cấu hình cho AI Agent để tương tác với dự án **frontend** (React, Vite, TailwindCSS, Zustand))*
 
 ## 1. Nhóm Kỹ Năng Phân Tích & Giải Thích
 - **`ai-lookup`**: Kỹ năng tra cứu nhanh tài liệu nội bộ, tìm kiếm cấu trúc thư mục hoặc cách hoạt động của các Components cốt lõi.
@@ -17,7 +17,7 @@
 - **`write-test`**: Tự động đọc file và sinh mã kiểm thử (Unit Test/Component Test) tương ứng.
 
 ## 4. Khả Năng Gọi Terminal Lệnh
-Trong quá trình làm việc, AI nhận thức được dự án sử dụng Vite và có thể chạy các lệnh NPM sau ở thư mục `movie-frontend`:
+Trong quá trình làm việc, AI nhận thức được dự án sử dụng Vite và có thể chạy các lệnh NPM sau ở thư mục `frontend`:
 - `npm run dev`: Chạy máy chủ cục bộ (dev server).
 - `npm run lint`: Chạy kiểm tra chuẩn mã (ESLint).
 - `npm run build`: Đóng gói ứng dụng (Production Build).
